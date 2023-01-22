@@ -7,25 +7,122 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D7AEF38297C18D500D3E316 /* PreparingResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7AEF37297C18D500D3E316 /* PreparingResultsViewController.swift */; };
+		3D7AEF3A297CBE9200D3E316 /* TestCapturerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7AEF39297CBE9200D3E316 /* TestCapturerViewController.swift */; };
+		3D7C1DB72967CFF00018B245 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7C1DB62967CFF00018B245 /* TestViewController.swift */; };
+		3D7C1DB82967DDF90018B245 /* BarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2D5D429668CF5008D445E /* BarcodeScannerViewController.swift */; };
+		3DA500E8297A95CF00F75E4B /* TestInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA500E7297A95CF00F75E4B /* TestInformationViewController.swift */; };
+		3DA500EA297AA25900F75E4B /* TestTypesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA500E9297AA25900F75E4B /* TestTypesTableViewController.swift */; };
+		3DA500EC297AA57000F75E4B /* TestTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA500EB297AA57000F75E4B /* TestTypeTableViewCell.swift */; };
+		3DA500EE297AC4FA00F75E4B /* ConductTestOnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA500ED297AC4FA00F75E4B /* ConductTestOnBoarding.swift */; };
+		3DA500F0297B6DA200F75E4B /* BarcodeScanningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA500EF297B6DA200F75E4B /* BarcodeScanningViewController.swift */; };
+		3DAAF396296D20BE00F16C61 /* MulticaseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAAF395296D20BE00F16C61 /* MulticaseDelegate.swift */; };
+		3DAAF398296D214400F16C61 /* DatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAAF397296D214400F16C61 /* DatabaseProtocol.swift */; };
+		3DAAF39B296D217700F16C61 /* EndUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAAF39A296D217700F16C61 /* EndUser.swift */; };
+		3DAAF39D296D236900F16C61 /* FirebaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAAF39C296D236900F16C61 /* FirebaseProtocol.swift */; };
+		3DAAF3A0296E640200F16C61 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAAF39F296E640200F16C61 /* TransactionTableViewCell.swift */; };
+		3DAAF3A2296E651C00F16C61 /* TransactionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAAF3A1296E651C00F16C61 /* TransactionsTableViewController.swift */; };
+		3DAAF3A4296E689600F16C61 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAAF3A3296E689600F16C61 /* Transaction.swift */; };
+		3DAAF3A6296E6A4700F16C61 /* TestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAAF3A5296E6A4700F16C61 /* TestType.swift */; };
+		3DAAF3A8296E6AAD00F16C61 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAAF3A7296E6AAD00F16C61 /* Test.swift */; };
+		3DB5CC67297A917300C2848E /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB5CC66297A917300C2848E /* HelperFunctions.swift */; };
+		3DC194CC296B7A6500187F66 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC194CB296B7A6500187F66 /* HomeScreenViewController.swift */; };
+		3DC194CE296B930E00187F66 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC194CD296B930E00187F66 /* ProfileViewController.swift */; };
+		3DC194D0296B9D1900187F66 /* TopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC194CF296B9D1900187F66 /* TopUpViewController.swift */; };
+		3DC194D3296BD1FE00187F66 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3DC194D2296BD1FE00187F66 /* FirebaseAuth */; };
+		3DC194D5296BD1FE00187F66 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 3DC194D4296BD1FE00187F66 /* FirebaseDatabase */; };
+		3DC194D7296BD1FE00187F66 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3DC194D6296BD1FE00187F66 /* FirebaseDatabaseSwift */; };
+		3DC194D9296BD1FE00187F66 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3DC194D8296BD1FE00187F66 /* FirebaseFirestore */; };
+		3DC194DB296BD1FE00187F66 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3DC194DA296BD1FE00187F66 /* FirebaseFirestoreSwift */; };
+		3DC194DD296BD1FE00187F66 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 3DC194DC296BD1FE00187F66 /* FirebaseFunctions */; };
+		3DC194DF296BD1FE00187F66 /* FirebaseInAppMessaging-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 3DC194DE296BD1FE00187F66 /* FirebaseInAppMessaging-Beta */; };
+		3DC194E1296BD1FE00187F66 /* FirebaseInAppMessagingSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 3DC194E0296BD1FE00187F66 /* FirebaseInAppMessagingSwift-Beta */; };
+		3DC194E3296BD1FE00187F66 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3DC194E2296BD1FE00187F66 /* FirebaseStorage */; };
+		3DC194E5296BD74E00187F66 /* PhoneVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC194E4296BD74E00187F66 /* PhoneVerificationViewController.swift */; };
+		3DC194E7296BDEE900187F66 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DC194E6296BDEE900187F66 /* GoogleService-Info.plist */; };
 		3DDBDE912964E7C400CA09FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDBDE902964E7C400CA09FE /* AppDelegate.swift */; };
 		3DDBDE932964E7C400CA09FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDBDE922964E7C400CA09FE /* SceneDelegate.swift */; };
-		3DDBDE952964E7C400CA09FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDBDE942964E7C400CA09FE /* ViewController.swift */; };
 		3DDBDE982964E7C400CA09FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DDBDE962964E7C400CA09FE /* Main.storyboard */; };
 		3DDBDE9B2964E7C400CA09FE /* THEIA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DDBDE992964E7C400CA09FE /* THEIA.xcdatamodeld */; };
 		3DDBDE9D2964E7C500CA09FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DDBDE9C2964E7C500CA09FE /* Assets.xcassets */; };
 		3DDBDEA02964E7C500CA09FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DDBDE9E2964E7C500CA09FE /* LaunchScreen.storyboard */; };
+		3DE2D5DB29668CF5008D445E /* VisionObjectRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2D5D229668CF5008D445E /* VisionObjectRecognitionViewController.swift */; };
+		3DE2D5DC29668CF5008D445E /* PostResultsCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2D5D329668CF5008D445E /* PostResultsCaptureViewController.swift */; };
+		3DE2D5DE29668CF5008D445E /* RATScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2D5D529668CF5008D445E /* RATScannerViewController.swift */; };
+		3DE2D5DF29668CF5008D445E /* ProcedureOnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2D5D629668CF5008D445E /* ProcedureOnBoardingViewController.swift */; };
+		3DE2D5E029668CF5008D445E /* edu.monash.COVIDGuide 2022-12-22 00:03.09.919.xcappdata in Resources */ = {isa = PBXBuildFile; fileRef = 3DE2D5D729668CF5008D445E /* edu.monash.COVIDGuide 2022-12-22 00:03.09.919.xcappdata */; };
+		3DE2D5E129668CF5008D445E /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2D5D829668CF5008D445E /* TimerViewController.swift */; };
+		3DE2D5E229668CF5008D445E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2D5D929668CF5008D445E /* ViewController.swift */; };
+		3DE2D5E329668CF5008D445E /* ComponentsLearningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2D5DA29668CF5008D445E /* ComponentsLearningViewController.swift */; };
+		3DE2D5F329668D6B008D445E /* detectRAT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2D5E529668D6B008D445E /* detectRAT.mlmodel */; };
+		3DE2D5F429668D6B008D445E /* detectRATV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2D5E629668D6B008D445E /* detectRATV2.mlmodel */; };
+		3DE2D5F529668D6B008D445E /* yolov7.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2D5E729668D6B008D445E /* yolov7.mlmodel */; };
+		3DE2D5F629668D6B008D445E /* detectRAT (1).mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2D5E829668D6B008D445E /* detectRAT (1).mlmodel */; };
+		3DE2D5F729668D6B008D445E /* ObjectDetector.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2D5E929668D6B008D445E /* ObjectDetector.mlmodel */; };
+		3DE2D5F829668D6B008D445E /* RAT20000.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2D5EA29668D6B008D445E /* RAT20000.mlmodel */; };
+		3DE2D5F929668D6B008D445E /* RATClassificationV1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2D5EB29668D6B008D445E /* RATClassificationV1.mlmodel */; };
+		3DE2D5FA29668D6B008D445E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2D5ED29668D6B008D445E /* Item.swift */; };
+		3DE2D5FB29668D6B008D445E /* RapidAntigenTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2D5EE29668D6B008D445E /* RapidAntigenTest.swift */; };
+		3DE2D5FC29668D6B008D445E /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2D5EF29668D6B008D445E /* Step.swift */; };
+		3DE2D5FD29668D6B008D445E /* ItemSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2D5F129668D6B008D445E /* ItemSetup.swift */; };
+		3DE2D5FE29668D6B008D445E /* RATSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2D5F229668D6B008D445E /* RATSetup.swift */; };
+		3DF5938529668996004BEC65 /* Guidance.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF5938429668996004BEC65 /* Guidance.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D7AEF37297C18D500D3E316 /* PreparingResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparingResultsViewController.swift; sourceTree = "<group>"; };
+		3D7AEF39297CBE9200D3E316 /* TestCapturerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCapturerViewController.swift; sourceTree = "<group>"; };
+		3D7C1DB62967CFF00018B245 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		3DA500E7297A95CF00F75E4B /* TestInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestInformationViewController.swift; sourceTree = "<group>"; };
+		3DA500E9297AA25900F75E4B /* TestTypesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTypesTableViewController.swift; sourceTree = "<group>"; };
+		3DA500EB297AA57000F75E4B /* TestTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTypeTableViewCell.swift; sourceTree = "<group>"; };
+		3DA500ED297AC4FA00F75E4B /* ConductTestOnBoarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConductTestOnBoarding.swift; path = THEIA/SwiftUI/ConductingTest/ConductTestOnBoarding.swift; sourceTree = "<group>"; };
+		3DA500EF297B6DA200F75E4B /* BarcodeScanningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScanningViewController.swift; sourceTree = "<group>"; };
+		3DAAF395296D20BE00F16C61 /* MulticaseDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MulticaseDelegate.swift; sourceTree = "<group>"; };
+		3DAAF397296D214400F16C61 /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProtocol.swift; sourceTree = "<group>"; };
+		3DAAF39A296D217700F16C61 /* EndUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndUser.swift; sourceTree = "<group>"; };
+		3DAAF39C296D236900F16C61 /* FirebaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProtocol.swift; sourceTree = "<group>"; };
+		3DAAF39F296E640200F16C61 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		3DAAF3A1296E651C00F16C61 /* TransactionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsTableViewController.swift; sourceTree = "<group>"; };
+		3DAAF3A3296E689600F16C61 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		3DAAF3A5296E6A4700F16C61 /* TestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestType.swift; sourceTree = "<group>"; };
+		3DAAF3A7296E6AAD00F16C61 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		3DB5CC66297A917300C2848E /* HelperFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelperFunctions.swift; path = THEIA/SwiftUI/HelperFunctions.swift; sourceTree = "<group>"; };
+		3DC194CB296B7A6500187F66 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
+		3DC194CD296B930E00187F66 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		3DC194CF296B9D1900187F66 /* TopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopUpViewController.swift; sourceTree = "<group>"; };
+		3DC194E4296BD74E00187F66 /* PhoneVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerificationViewController.swift; sourceTree = "<group>"; };
+		3DC194E6296BDEE900187F66 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3DDBDE8D2964E7C400CA09FE /* THEIA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = THEIA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DDBDE902964E7C400CA09FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DDBDE922964E7C400CA09FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3DDBDE942964E7C400CA09FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3DDBDE972964E7C400CA09FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3DDBDE9A2964E7C400CA09FE /* THEIA.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = THEIA.xcdatamodel; sourceTree = "<group>"; };
 		3DDBDE9C2964E7C500CA09FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DDBDE9F2964E7C500CA09FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DDBDEA12964E7C500CA09FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DE2D5D229668CF5008D445E /* VisionObjectRecognitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisionObjectRecognitionViewController.swift; sourceTree = "<group>"; };
+		3DE2D5D329668CF5008D445E /* PostResultsCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostResultsCaptureViewController.swift; sourceTree = "<group>"; };
+		3DE2D5D429668CF5008D445E /* BarcodeScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewController.swift; sourceTree = "<group>"; };
+		3DE2D5D529668CF5008D445E /* RATScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RATScannerViewController.swift; sourceTree = "<group>"; };
+		3DE2D5D629668CF5008D445E /* ProcedureOnBoardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcedureOnBoardingViewController.swift; sourceTree = "<group>"; };
+		3DE2D5D729668CF5008D445E /* edu.monash.COVIDGuide 2022-12-22 00:03.09.919.xcappdata */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = "edu.monash.COVIDGuide 2022-12-22 00:03.09.919.xcappdata"; sourceTree = "<group>"; };
+		3DE2D5D829668CF5008D445E /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		3DE2D5D929668CF5008D445E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3DE2D5DA29668CF5008D445E /* ComponentsLearningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentsLearningViewController.swift; sourceTree = "<group>"; };
+		3DE2D5E529668D6B008D445E /* detectRAT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = detectRAT.mlmodel; sourceTree = "<group>"; };
+		3DE2D5E629668D6B008D445E /* detectRATV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = detectRATV2.mlmodel; sourceTree = "<group>"; };
+		3DE2D5E729668D6B008D445E /* yolov7.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = yolov7.mlmodel; sourceTree = "<group>"; };
+		3DE2D5E829668D6B008D445E /* detectRAT (1).mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "detectRAT (1).mlmodel"; sourceTree = "<group>"; };
+		3DE2D5E929668D6B008D445E /* ObjectDetector.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ObjectDetector.mlmodel; sourceTree = "<group>"; };
+		3DE2D5EA29668D6B008D445E /* RAT20000.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = RAT20000.mlmodel; sourceTree = "<group>"; };
+		3DE2D5EB29668D6B008D445E /* RATClassificationV1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = RATClassificationV1.mlmodel; sourceTree = "<group>"; };
+		3DE2D5ED29668D6B008D445E /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		3DE2D5EE29668D6B008D445E /* RapidAntigenTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RapidAntigenTest.swift; sourceTree = "<group>"; };
+		3DE2D5EF29668D6B008D445E /* Step.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
+		3DE2D5F129668D6B008D445E /* ItemSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSetup.swift; sourceTree = "<group>"; };
+		3DE2D5F229668D6B008D445E /* RATSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RATSetup.swift; sourceTree = "<group>"; };
+		3DF5938429668996004BEC65 /* Guidance.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Guidance.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,15 +130,76 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DC194DB296BD1FE00187F66 /* FirebaseFirestoreSwift in Frameworks */,
+				3DC194DF296BD1FE00187F66 /* FirebaseInAppMessaging-Beta in Frameworks */,
+				3DC194E3296BD1FE00187F66 /* FirebaseStorage in Frameworks */,
+				3DC194E1296BD1FE00187F66 /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
+				3DC194D7296BD1FE00187F66 /* FirebaseDatabaseSwift in Frameworks */,
+				3DC194D9296BD1FE00187F66 /* FirebaseFirestore in Frameworks */,
+				3DC194DD296BD1FE00187F66 /* FirebaseFunctions in Frameworks */,
+				3DC194D5296BD1FE00187F66 /* FirebaseDatabase in Frameworks */,
+				3DC194D3296BD1FE00187F66 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D7AEF3B297CBEA300D3E316 /* ConductingTest */ = {
+			isa = PBXGroup;
+			children = (
+				3DE2D5D629668CF5008D445E /* ProcedureOnBoardingViewController.swift */,
+				3D7AEF39297CBE9200D3E316 /* TestCapturerViewController.swift */,
+				3DE2D5D929668CF5008D445E /* ViewController.swift */,
+				3DE2D5D229668CF5008D445E /* VisionObjectRecognitionViewController.swift */,
+				3DA500E7297A95CF00F75E4B /* TestInformationViewController.swift */,
+				3DA500E9297AA25900F75E4B /* TestTypesTableViewController.swift */,
+				3DA500EF297B6DA200F75E4B /* BarcodeScanningViewController.swift */,
+				3D7AEF37297C18D500D3E316 /* PreparingResultsViewController.swift */,
+				3DE2D5D829668CF5008D445E /* TimerViewController.swift */,
+				3DE2D5D329668CF5008D445E /* PostResultsCaptureViewController.swift */,
+				3DE2D5DA29668CF5008D445E /* ComponentsLearningViewController.swift */,
+			);
+			path = ConductingTest;
+			sourceTree = "<group>";
+		};
+		3DAAF394296D20A500F16C61 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				3DAAF399296D216100F16C61 /* Database Objects */,
+				3DAAF395296D20BE00F16C61 /* MulticaseDelegate.swift */,
+				3DAAF397296D214400F16C61 /* DatabaseProtocol.swift */,
+				3DAAF39C296D236900F16C61 /* FirebaseProtocol.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		3DAAF399296D216100F16C61 /* Database Objects */ = {
+			isa = PBXGroup;
+			children = (
+				3DAAF39A296D217700F16C61 /* EndUser.swift */,
+				3DAAF3A3296E689600F16C61 /* Transaction.swift */,
+				3DAAF3A5296E6A4700F16C61 /* TestType.swift */,
+				3DE2D5EF29668D6B008D445E /* Step.swift */,
+				3DAAF3A7296E6AAD00F16C61 /* Test.swift */,
+			);
+			path = "Database Objects";
+			sourceTree = "<group>";
+		};
+		3DAAF39E296E63E700F16C61 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				3DAAF39F296E640200F16C61 /* TransactionTableViewCell.swift */,
+				3DA500EB297AA57000F75E4B /* TestTypeTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
 		3DDBDE842964E7C400CA09FE = {
 			isa = PBXGroup;
 			children = (
+				3DA500ED297AC4FA00F75E4B /* ConductTestOnBoarding.swift */,
+				3DB5CC66297A917300C2848E /* HelperFunctions.swift */,
 				3DDBDE8F2964E7C400CA09FE /* THEIA */,
 				3DDBDE8E2964E7C400CA09FE /* Products */,
 			);
@@ -58,16 +216,80 @@
 		3DDBDE8F2964E7C400CA09FE /* THEIA */ = {
 			isa = PBXGroup;
 			children = (
+				3DAAF394296D20A500F16C61 /* Database */,
+				3DF593832966896D004BEC65 /* UIKit */,
 				3DDBDE902964E7C400CA09FE /* AppDelegate.swift */,
 				3DDBDE922964E7C400CA09FE /* SceneDelegate.swift */,
-				3DDBDE942964E7C400CA09FE /* ViewController.swift */,
 				3DDBDE962964E7C400CA09FE /* Main.storyboard */,
+				3DC194E6296BDEE900187F66 /* GoogleService-Info.plist */,
 				3DDBDE9C2964E7C500CA09FE /* Assets.xcassets */,
 				3DDBDE9E2964E7C500CA09FE /* LaunchScreen.storyboard */,
 				3DDBDEA12964E7C500CA09FE /* Info.plist */,
 				3DDBDE992964E7C400CA09FE /* THEIA.xcdatamodeld */,
 			);
 			path = THEIA;
+			sourceTree = "<group>";
+		};
+		3DE2D5D129668CC8008D445E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3D7AEF3B297CBEA300D3E316 /* ConductingTest */,
+				3DE2D5D429668CF5008D445E /* BarcodeScannerViewController.swift */,
+				3DE2D5D729668CF5008D445E /* edu.monash.COVIDGuide 2022-12-22 00:03.09.919.xcappdata */,
+				3DE2D5D529668CF5008D445E /* RATScannerViewController.swift */,
+				3D7C1DB62967CFF00018B245 /* TestViewController.swift */,
+				3DF5938429668996004BEC65 /* Guidance.storyboard */,
+				3DC194CB296B7A6500187F66 /* HomeScreenViewController.swift */,
+				3DC194CD296B930E00187F66 /* ProfileViewController.swift */,
+				3DC194CF296B9D1900187F66 /* TopUpViewController.swift */,
+				3DC194E4296BD74E00187F66 /* PhoneVerificationViewController.swift */,
+				3DAAF3A1296E651C00F16C61 /* TransactionsTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3DE2D5E429668D6B008D445E /* ObjectDetection */ = {
+			isa = PBXGroup;
+			children = (
+				3DE2D5E529668D6B008D445E /* detectRAT.mlmodel */,
+				3DE2D5E629668D6B008D445E /* detectRATV2.mlmodel */,
+				3DE2D5E729668D6B008D445E /* yolov7.mlmodel */,
+				3DE2D5E829668D6B008D445E /* detectRAT (1).mlmodel */,
+				3DE2D5E929668D6B008D445E /* ObjectDetector.mlmodel */,
+				3DE2D5EA29668D6B008D445E /* RAT20000.mlmodel */,
+				3DE2D5EB29668D6B008D445E /* RATClassificationV1.mlmodel */,
+			);
+			path = ObjectDetection;
+			sourceTree = "<group>";
+		};
+		3DE2D5EC29668D6B008D445E /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				3DE2D5ED29668D6B008D445E /* Item.swift */,
+				3DE2D5EE29668D6B008D445E /* RapidAntigenTest.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		3DE2D5F029668D6B008D445E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3DE2D5F129668D6B008D445E /* ItemSetup.swift */,
+				3DE2D5F229668D6B008D445E /* RATSetup.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3DF593832966896D004BEC65 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				3DAAF39E296E63E700F16C61 /* TableViewCells */,
+				3DE2D5F029668D6B008D445E /* Extensions */,
+				3DE2D5E429668D6B008D445E /* ObjectDetection */,
+				3DE2D5EC29668D6B008D445E /* Objects */,
+				3DE2D5D129668CC8008D445E /* ViewControllers */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +308,17 @@
 			dependencies = (
 			);
 			name = THEIA;
+			packageProductDependencies = (
+				3DC194D2296BD1FE00187F66 /* FirebaseAuth */,
+				3DC194D4296BD1FE00187F66 /* FirebaseDatabase */,
+				3DC194D6296BD1FE00187F66 /* FirebaseDatabaseSwift */,
+				3DC194D8296BD1FE00187F66 /* FirebaseFirestore */,
+				3DC194DA296BD1FE00187F66 /* FirebaseFirestoreSwift */,
+				3DC194DC296BD1FE00187F66 /* FirebaseFunctions */,
+				3DC194DE296BD1FE00187F66 /* FirebaseInAppMessaging-Beta */,
+				3DC194E0296BD1FE00187F66 /* FirebaseInAppMessagingSwift-Beta */,
+				3DC194E2296BD1FE00187F66 /* FirebaseStorage */,
+			);
 			productName = THEIA;
 			productReference = 3DDBDE8D2964E7C400CA09FE /* THEIA.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +347,9 @@
 				Base,
 			);
 			mainGroup = 3DDBDE842964E7C400CA09FE;
+			packageReferences = (
+				3DC194D1296BD1FE00187F66 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 3DDBDE8E2964E7C400CA09FE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -128,9 +364,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DC194E7296BDEE900187F66 /* GoogleService-Info.plist in Resources */,
+				3DE2D5E029668CF5008D445E /* edu.monash.COVIDGuide 2022-12-22 00:03.09.919.xcappdata in Resources */,
 				3DDBDEA02964E7C500CA09FE /* LaunchScreen.storyboard in Resources */,
 				3DDBDE9D2964E7C500CA09FE /* Assets.xcassets in Resources */,
 				3DDBDE982964E7C400CA09FE /* Main.storyboard in Resources */,
+				3DF5938529668996004BEC65 /* Guidance.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,10 +380,51 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DDBDE952964E7C400CA09FE /* ViewController.swift in Sources */,
+				3DAAF396296D20BE00F16C61 /* MulticaseDelegate.swift in Sources */,
+				3DE2D5E229668CF5008D445E /* ViewController.swift in Sources */,
+				3DE2D5FD29668D6B008D445E /* ItemSetup.swift in Sources */,
+				3DE2D5DF29668CF5008D445E /* ProcedureOnBoardingViewController.swift in Sources */,
+				3DE2D5E129668CF5008D445E /* TimerViewController.swift in Sources */,
+				3DB5CC67297A917300C2848E /* HelperFunctions.swift in Sources */,
+				3DC194CC296B7A6500187F66 /* HomeScreenViewController.swift in Sources */,
+				3DAAF3A6296E6A4700F16C61 /* TestType.swift in Sources */,
+				3DAAF3A2296E651C00F16C61 /* TransactionsTableViewController.swift in Sources */,
+				3DA500EE297AC4FA00F75E4B /* ConductTestOnBoarding.swift in Sources */,
+				3DE2D5DB29668CF5008D445E /* VisionObjectRecognitionViewController.swift in Sources */,
+				3DAAF3A4296E689600F16C61 /* Transaction.swift in Sources */,
+				3DE2D5FB29668D6B008D445E /* RapidAntigenTest.swift in Sources */,
+				3DE2D5F729668D6B008D445E /* ObjectDetector.mlmodel in Sources */,
+				3DA500EA297AA25900F75E4B /* TestTypesTableViewController.swift in Sources */,
+				3D7C1DB82967DDF90018B245 /* BarcodeScannerViewController.swift in Sources */,
+				3DE2D5F429668D6B008D445E /* detectRATV2.mlmodel in Sources */,
+				3DE2D5DE29668CF5008D445E /* RATScannerViewController.swift in Sources */,
+				3DE2D5F929668D6B008D445E /* RATClassificationV1.mlmodel in Sources */,
+				3DE2D5DC29668CF5008D445E /* PostResultsCaptureViewController.swift in Sources */,
+				3DA500EC297AA57000F75E4B /* TestTypeTableViewCell.swift in Sources */,
+				3DA500E8297A95CF00F75E4B /* TestInformationViewController.swift in Sources */,
+				3DAAF39B296D217700F16C61 /* EndUser.swift in Sources */,
+				3DE2D5FC29668D6B008D445E /* Step.swift in Sources */,
 				3DDBDE9B2964E7C400CA09FE /* THEIA.xcdatamodeld in Sources */,
+				3D7C1DB72967CFF00018B245 /* TestViewController.swift in Sources */,
+				3DC194D0296B9D1900187F66 /* TopUpViewController.swift in Sources */,
+				3DE2D5F329668D6B008D445E /* detectRAT.mlmodel in Sources */,
+				3D7AEF38297C18D500D3E316 /* PreparingResultsViewController.swift in Sources */,
+				3D7AEF3A297CBE9200D3E316 /* TestCapturerViewController.swift in Sources */,
+				3DE2D5E329668CF5008D445E /* ComponentsLearningViewController.swift in Sources */,
+				3DE2D5F829668D6B008D445E /* RAT20000.mlmodel in Sources */,
+				3DE2D5F529668D6B008D445E /* yolov7.mlmodel in Sources */,
 				3DDBDE912964E7C400CA09FE /* AppDelegate.swift in Sources */,
+				3DAAF3A0296E640200F16C61 /* TransactionTableViewCell.swift in Sources */,
+				3DAAF39D296D236900F16C61 /* FirebaseProtocol.swift in Sources */,
 				3DDBDE932964E7C400CA09FE /* SceneDelegate.swift in Sources */,
+				3DC194E5296BD74E00187F66 /* PhoneVerificationViewController.swift in Sources */,
+				3DE2D5FA29668D6B008D445E /* Item.swift in Sources */,
+				3DAAF3A8296E6AAD00F16C61 /* Test.swift in Sources */,
+				3DA500F0297B6DA200F75E4B /* BarcodeScanningViewController.swift in Sources */,
+				3DC194CE296B930E00187F66 /* ProfileViewController.swift in Sources */,
+				3DE2D5F629668D6B008D445E /* detectRAT (1).mlmodel in Sources */,
+				3DE2D5FE29668D6B008D445E /* RATSetup.swift in Sources */,
+				3DAAF398296D214400F16C61 /* DatabaseProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,16 +569,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = THEIA/THEIA.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8FCNH268N4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = THEIA/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to access your camera to scan and take photos of the tests";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need to access your microphone for voice control purposes";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -317,16 +601,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = THEIA/THEIA.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8FCNH268N4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = THEIA/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to access your camera to scan and take photos of the tests";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need to access your microphone for voice control purposes";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -362,6 +650,65 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3DC194D1296BD1FE00187F66 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3DC194D2296BD1FE00187F66 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3DC194D1296BD1FE00187F66 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		3DC194D4296BD1FE00187F66 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3DC194D1296BD1FE00187F66 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		3DC194D6296BD1FE00187F66 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3DC194D1296BD1FE00187F66 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		3DC194D8296BD1FE00187F66 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3DC194D1296BD1FE00187F66 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		3DC194DA296BD1FE00187F66 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3DC194D1296BD1FE00187F66 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		3DC194DC296BD1FE00187F66 /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3DC194D1296BD1FE00187F66 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
+		3DC194DE296BD1FE00187F66 /* FirebaseInAppMessaging-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3DC194D1296BD1FE00187F66 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseInAppMessaging-Beta";
+		};
+		3DC194E0296BD1FE00187F66 /* FirebaseInAppMessagingSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3DC194D1296BD1FE00187F66 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseInAppMessagingSwift-Beta";
+		};
+		3DC194E2296BD1FE00187F66 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3DC194D1296BD1FE00187F66 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		3DDBDE992964E7C400CA09FE /* THEIA.xcdatamodeld */ = {
