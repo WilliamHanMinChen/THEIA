@@ -25,6 +25,7 @@ enum ListenerType {
     case all
     case user
     case testType
+    case test
 }
 
 
@@ -44,6 +45,8 @@ protocol DatabaseListener: AnyObject{
     func onEndUserChange(change: DataBaseChange, user: EndUser)
     
     func onTestTypesChange(change: DataBaseChange, testTypes: [TestType])
+    
+    func onTestChange(change: DataBaseChange, tests: [Test])
     
 //    //When the other user details changes
 //    func onUserInfoChange(change: DataBaseChange, units: [Unit], staffs: [TeachingStaff], facilities: [Facility], likedWrittenReviews: [String], dislikedWrittenReviews: [String], user: CustomUser)

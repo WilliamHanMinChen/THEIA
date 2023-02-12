@@ -18,6 +18,12 @@ class Test: NSObject, Codable {
     var steps : [Step]?
     var beforeStarting : [String]?
     var timer : Int?
+    //The name of the ML File we are going to use for capturing the results
+    var capturingModelName: String?
+    
+    var interpretationImageURL: String?
+    
+    var packagingImages: [String?]
     
     
 }

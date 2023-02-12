@@ -9,10 +9,14 @@ import UIKit
 import FirebaseAuth
 
 class ProfileViewController: UIViewController, DatabaseListener {
-    func onTestTypesChange(change: DataBaseChange, testTypes: [TestType]) {
+    func onTestChange(change: DataBaseChange, tests: [Test]) {
         
     }
     
+    
+    func onTestTypesChange(change: DataBaseChange, testTypes: [TestType]) {
+        
+    }
     
     
     @IBOutlet weak var balanceLabel: UILabel!

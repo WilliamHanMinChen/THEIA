@@ -7,6 +7,9 @@
 
 import UIKit
 
+import Firebase
+import FirebaseStorage
+
 class ComponentsLearningViewController: UIViewController {
     
     //The Rapid Antigen Test the user has scanned
@@ -17,7 +20,8 @@ class ComponentsLearningViewController: UIViewController {
     
     //Haptic feedback engine
     let mediumImpact = UIImpactFeedbackGenerator(style: .medium)
-    
+
+    var storageReference = Storage.storage()
     
     //References
     @IBOutlet weak var testTypeLabel: UILabel!
@@ -60,7 +64,60 @@ class ComponentsLearningViewController: UIViewController {
         
         //Update our navigation heading
         navigationItem.title = scannedTest?.name
+        
+        getInstructionsImage()
 
+    }
+    
+    func getInstructionsImage() -> UIImage{
+        
+        //Ensures we have one, if not, set a default picture
+        guard let imageURL = scannedTest?.interpretationImageURL else {
+            return UIImage()
+        }
+        
+        let filename = imageURL
+        
+        //If it exists then we down need to download it again
+        if let image = self.loadImageData(filename: filename) {
+            print("Image already downloaded")
+            return image
+        } else {
+            // Next Step
+            let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+            let documentsDirectory = paths[0]
+            let fileURL = documentsDirectory.appendingPathComponent(filename)
+            let downloadTask = storageReference.reference(forURL: imageURL).write(toFile:fileURL)
+            downloadTask.observe(.success) { snapshot in
+                print("Successfully downloaded image")}
+                downloadTask.observe(.failure){ snapshot in print("\(String(describing: snapshot.error))")
+                }
+        }
+        
+        return UIImage()
+        
+    }
+    
+    //Write the image file locally
+    func saveImageData(filename: String, imageData: Data) {
+        let paths = FileManager.default.urls(for: .documentDirectory,
+            in: .userDomainMask)
+        let documentsDirectory = paths[0]
+        let fileURL = documentsDirectory.appendingPathComponent(filename)
+        do {
+            try imageData.write(to: fileURL)
+        } catch {
+            print("Error writing file: \(error.localizedDescription)")
+        }
+        
+    }
+    
+    func loadImageData(filename: String) -> UIImage? {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsDirectory = paths[0]
+        let imageURL = documentsDirectory.appendingPathComponent(filename)
+        let image = UIImage(contentsOfFile: imageURL.path)
+        return image
     }
     
     

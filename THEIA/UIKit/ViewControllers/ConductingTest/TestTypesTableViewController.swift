@@ -10,6 +10,10 @@ import FirebaseFirestore
 import FirebaseAuth
 
 class TestTypesTableViewController: UITableViewController, DatabaseListener {
+    func onTestChange(change: DataBaseChange, tests: [Test]) {
+        
+    }
+    
     
     
     //Sets the listener type

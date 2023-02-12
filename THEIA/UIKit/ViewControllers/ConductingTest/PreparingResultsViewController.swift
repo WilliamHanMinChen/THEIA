@@ -18,24 +18,42 @@ class PreparingResultsViewController: UIViewController {
     
     @IBOutlet weak var resultsTitleLabel: UILabel!
     
+    var scannedTest: Test?
     
+    //Haptic feedback engine
+    let mediumImpact = UIImpactFeedbackGenerator(style: .medium)
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nextStepButton.setupButton()
 
         // Do any additional setup after loading the view.
     }
     
+    
+    @IBAction func nextStepAction(_ sender: Any) {
+        
+        //Give haptic feedback
+        mediumImpact.impactOccurred()
+        
+        performSegue(withIdentifier: "preparingToCaptureSegue", sender: nil)
+    }
+    
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        //Set our Next VC's Test
+        if segue.identifier == "preparingToCaptureSegue" {
+            let destination = segue.destination as! TestCapturerViewController
+            
+            destination.scannedTest = self.scannedTest
+        }
     }
-    */
+    
 
 }

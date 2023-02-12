@@ -76,7 +76,7 @@ class VisionObjectRecognitionViewController: ViewController {
                     if let observations = request.results as? [VNClassificationObservation] {
 //                        print("Request processed, got the results")
 //                        print("RAT Result: \(observations.first?.identifier)")
-                        self.resultLabel.text = "Result: \(observations.first!.identifier)"
+                        //self.resultLabel.text = "Result: \(observations.first!.identifier)"
                     }
                 })
             })
@@ -106,7 +106,7 @@ class VisionObjectRecognitionViewController: ViewController {
                     // perform all the UI updates on the main queue
                     if let results = request.results {
                         if results.isEmpty{
-                            self.resultLabel.text = "Result: Detecting"
+                            //self.resultLabel.text = "Result: Detecting"
                         }
 //                        self.resultLabel.text = "Result: Detecting"
 //                        print("Request processed, got the results")
@@ -149,8 +149,6 @@ class VisionObjectRecognitionViewController: ViewController {
             }
             
         }
-            
-        
     }
     
     

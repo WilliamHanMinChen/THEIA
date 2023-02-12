@@ -28,6 +28,11 @@ class FirebaseController: NSObject , DatabaseProtocol{
             listener.onTestTypesChange(change: .update, testTypes: testTypes)
         }
         
+        //If the listener is a test listener or all type, update them about the units
+        if listener.listenerType == .test || listener.listenerType == .all {
+            listener.onTestChange(change: .update, tests: tests)
+        }
+        
         
     }
     
@@ -50,10 +55,14 @@ class FirebaseController: NSObject , DatabaseProtocol{
     //Collection references
     var usersRef: CollectionReference?
     var testTypesRef: CollectionReference?
+    var testsRef: CollectionReference?
     
     
     //Holds our test types
     var testTypes: [TestType]
+    
+    //Holds our test types
+    var tests: [Test]
     
     //Listener for the user
     var userListener: ListenerRegistration?
@@ -83,12 +92,14 @@ class FirebaseController: NSObject , DatabaseProtocol{
         user = EndUser()
         
         testTypes = []
+        tests = []
         
         super.init()
         
         
         //Setup the listeners
         setupTestTypeListener()
+        setupTestListener()
         
         
         //        setupUnitsListener()
@@ -110,6 +121,75 @@ class FirebaseController: NSObject , DatabaseProtocol{
         
     }
     
+    func setupTestListener(){
+        //This method will setup a snapshot listener that will listen for all changes in the staffs reference
+
+        //First step, get a reference to the firestore collection
+        testsRef = database.collection("tests")
+
+        //Adds the listener plus a function to be called once the reference is updated
+        testsRef?.addSnapshotListener() {
+            (QuerySnapshot, error) in
+            //Check that the snapshot is valid
+            guard let querySnapshot = QuerySnapshot else {
+                print("Failed to fetch documents with error: \(String(describing: error))")
+                return
+            }
+
+            //If it is valid, then we call another method to parse the staffs
+            self.parseTestSnapshot(snapshot: querySnapshot)
+            print("Got here!!")
+
+        }
+
+    }
+
+    //This function is to handle what has changed so it is reflected inside our app
+    func parseTestSnapshot(snapshot: QuerySnapshot){
+        //Loop through each change in our snapshot
+        snapshot.documentChanges.forEach{ (change) in
+            var parsedTest: Test?
+
+            //Decode it into a staff object
+            do {
+                parsedTest = try change.document.data(as: Test.self)
+                }
+            catch {
+                print(error)
+                print("Unable to decode test. Is the test malformed?")
+                return
+            }
+
+            //Make sure there is a staff
+            guard let test = parsedTest else{
+                print("Document doesnt exist")
+                return
+            }
+            //Determine what the change was
+
+            if change.type == .added {
+                //Insert the staff into its corresponding position. It needs to match firestore in order to handle deletion and modification.
+                tests.insert(test, at: Int(change.newIndex))
+            }
+
+            if change.type == .modified {
+                tests[Int(change.oldIndex)] = test
+            }
+
+            if change.type == .removed {
+                tests.remove(at: Int(change.oldIndex))
+            }
+
+            //After we make the changes to the staff list, pass it onto the listeners
+            listeners.invoke { (listener) in
+                if listener.listenerType == ListenerType.test ||
+                    listener.listenerType == ListenerType.all {
+                    listener.onTestChange(change: .update, tests: tests)
+                }
+            }
+        }
+
+    }
     
     
     

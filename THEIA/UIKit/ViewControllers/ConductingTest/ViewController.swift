@@ -14,7 +14,6 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     var bufferSize: CGSize = .zero
     var rootLayer: CALayer! = nil
     
-    @IBOutlet weak var resultLabel: UILabel!
     
     @IBOutlet weak private var previewView: UIView!
     //The session that captures Audio Visual input
@@ -95,7 +94,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         previewLayer = AVCaptureVideoPreviewLayer(session: session)
         previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         rootLayer = previewView.layer
-        previewLayer.frame = UIScreen.main.bounds
+        previewLayer.frame = CGRect(x: 0, y: 0, width: previewView.frame.width, height: previewView.frame.height)
         rootLayer.addSublayer(previewLayer)
     }
     

@@ -27,6 +27,10 @@ class TimerViewController: UIViewController {
     
     
     
+    //Haptic feedback engine
+    let mediumImpact = UIImpactFeedbackGenerator(style: .medium)
+    
+    
     //Keeps track of the first time the user click the next button
     var firstButtonClickTime: Date?
     
@@ -174,14 +178,24 @@ class TimerViewController: UIViewController {
     
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        
+        if segue.identifier == "CaptureToPrepareSegue" {
+            
+            let destination = segue.destination as! PreparingResultsViewController
+            
+            destination.scannedTest = self.scannedTest
+        }
+        //Give haptic feedback
+        mediumImpact.impactOccurred()
     }
-    */
+    
 
 }

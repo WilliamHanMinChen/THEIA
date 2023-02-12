@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D081C082993DD36005CF49D /* ScanTestPackagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D081C072993DD36005CF49D /* ScanTestPackagingViewController.swift */; };
+		3D081C0A2994BCD7005CF49D /* SearchTestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D081C092994BCD7005CF49D /* SearchTestsTableViewController.swift */; };
 		3D7AEF38297C18D500D3E316 /* PreparingResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7AEF37297C18D500D3E316 /* PreparingResultsViewController.swift */; };
 		3D7AEF3A297CBE9200D3E316 /* TestCapturerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7AEF39297CBE9200D3E316 /* TestCapturerViewController.swift */; };
 		3D7C1DB72967CFF00018B245 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7C1DB62967CFF00018B245 /* TestViewController.swift */; };
 		3D7C1DB82967DDF90018B245 /* BarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2D5D429668CF5008D445E /* BarcodeScannerViewController.swift */; };
+		3D9CD282298BBA6800426A15 /* Scanning.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3D9CD281298BBA6800426A15 /* Scanning.wav */; };
 		3DA500E8297A95CF00F75E4B /* TestInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA500E7297A95CF00F75E4B /* TestInformationViewController.swift */; };
 		3DA500EA297AA25900F75E4B /* TestTypesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA500E9297AA25900F75E4B /* TestTypesTableViewController.swift */; };
 		3DA500EC297AA57000F75E4B /* TestTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA500EB297AA57000F75E4B /* TestTypeTableViewCell.swift */; };
@@ -66,13 +69,16 @@
 		3DE2D5FC29668D6B008D445E /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2D5EF29668D6B008D445E /* Step.swift */; };
 		3DE2D5FD29668D6B008D445E /* ItemSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2D5F129668D6B008D445E /* ItemSetup.swift */; };
 		3DE2D5FE29668D6B008D445E /* RATSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2D5F229668D6B008D445E /* RATSetup.swift */; };
-		3DF5938529668996004BEC65 /* Guidance.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF5938429668996004BEC65 /* Guidance.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D081C072993DD36005CF49D /* ScanTestPackagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanTestPackagingViewController.swift; sourceTree = "<group>"; };
+		3D081C092994BCD7005CF49D /* SearchTestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTestsTableViewController.swift; sourceTree = "<group>"; };
 		3D7AEF37297C18D500D3E316 /* PreparingResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparingResultsViewController.swift; sourceTree = "<group>"; };
 		3D7AEF39297CBE9200D3E316 /* TestCapturerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCapturerViewController.swift; sourceTree = "<group>"; };
 		3D7C1DB62967CFF00018B245 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		3D9CD280298BB0F400426A15 /* Scanning.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Scanning.aif; sourceTree = "<group>"; };
+		3D9CD281298BBA6800426A15 /* Scanning.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Scanning.wav; sourceTree = "<group>"; };
 		3DA500E7297A95CF00F75E4B /* TestInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestInformationViewController.swift; sourceTree = "<group>"; };
 		3DA500E9297AA25900F75E4B /* TestTypesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTypesTableViewController.swift; sourceTree = "<group>"; };
 		3DA500EB297AA57000F75E4B /* TestTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTypeTableViewCell.swift; sourceTree = "<group>"; };
@@ -122,7 +128,6 @@
 		3DE2D5EF29668D6B008D445E /* Step.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		3DE2D5F129668D6B008D445E /* ItemSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSetup.swift; sourceTree = "<group>"; };
 		3DE2D5F229668D6B008D445E /* RATSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RATSetup.swift; sourceTree = "<group>"; };
-		3DF5938429668996004BEC65 /* Guidance.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Guidance.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +171,8 @@
 		3DAAF394296D20A500F16C61 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				3D9CD280298BB0F400426A15 /* Scanning.aif */,
+				3D9CD281298BBA6800426A15 /* Scanning.wav */,
 				3DAAF399296D216100F16C61 /* Database Objects */,
 				3DAAF395296D20BE00F16C61 /* MulticaseDelegate.swift */,
 				3DAAF397296D214400F16C61 /* DatabaseProtocol.swift */,
@@ -238,12 +245,13 @@
 				3DE2D5D729668CF5008D445E /* edu.monash.COVIDGuide 2022-12-22 00:03.09.919.xcappdata */,
 				3DE2D5D529668CF5008D445E /* RATScannerViewController.swift */,
 				3D7C1DB62967CFF00018B245 /* TestViewController.swift */,
-				3DF5938429668996004BEC65 /* Guidance.storyboard */,
 				3DC194CB296B7A6500187F66 /* HomeScreenViewController.swift */,
 				3DC194CD296B930E00187F66 /* ProfileViewController.swift */,
 				3DC194CF296B9D1900187F66 /* TopUpViewController.swift */,
 				3DC194E4296BD74E00187F66 /* PhoneVerificationViewController.swift */,
 				3DAAF3A1296E651C00F16C61 /* TransactionsTableViewController.swift */,
+				3D081C072993DD36005CF49D /* ScanTestPackagingViewController.swift */,
+				3D081C092994BCD7005CF49D /* SearchTestsTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -364,12 +372,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D9CD282298BBA6800426A15 /* Scanning.wav in Resources */,
 				3DC194E7296BDEE900187F66 /* GoogleService-Info.plist in Resources */,
 				3DE2D5E029668CF5008D445E /* edu.monash.COVIDGuide 2022-12-22 00:03.09.919.xcappdata in Resources */,
 				3DDBDEA02964E7C500CA09FE /* LaunchScreen.storyboard in Resources */,
 				3DDBDE9D2964E7C500CA09FE /* Assets.xcassets in Resources */,
 				3DDBDE982964E7C400CA09FE /* Main.storyboard in Resources */,
-				3DF5938529668996004BEC65 /* Guidance.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +395,7 @@
 				3DE2D5E129668CF5008D445E /* TimerViewController.swift in Sources */,
 				3DB5CC67297A917300C2848E /* HelperFunctions.swift in Sources */,
 				3DC194CC296B7A6500187F66 /* HomeScreenViewController.swift in Sources */,
+				3D081C0A2994BCD7005CF49D /* SearchTestsTableViewController.swift in Sources */,
 				3DAAF3A6296E6A4700F16C61 /* TestType.swift in Sources */,
 				3DAAF3A2296E651C00F16C61 /* TransactionsTableViewController.swift in Sources */,
 				3DA500EE297AC4FA00F75E4B /* ConductTestOnBoarding.swift in Sources */,
@@ -413,6 +422,7 @@
 				3DE2D5E329668CF5008D445E /* ComponentsLearningViewController.swift in Sources */,
 				3DE2D5F829668D6B008D445E /* RAT20000.mlmodel in Sources */,
 				3DE2D5F529668D6B008D445E /* yolov7.mlmodel in Sources */,
+				3D081C082993DD36005CF49D /* ScanTestPackagingViewController.swift in Sources */,
 				3DDBDE912964E7C400CA09FE /* AppDelegate.swift in Sources */,
 				3DAAF3A0296E640200F16C61 /* TransactionTableViewCell.swift in Sources */,
 				3DAAF39D296D236900F16C61 /* FirebaseProtocol.swift in Sources */,
