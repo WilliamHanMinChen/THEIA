@@ -876,6 +876,7 @@
                         <outlet property="arView" destination="VzT-QH-066" id="QJk-Rj-qEC"/>
                         <outlet property="searchButton" destination="lgQ-3r-5p2" id="FVE-My-iQp"/>
                         <segue destination="kac-FG-hYd" kind="show" identifier="PackagingToSearchingSegue" id="Gug-5Y-ma5"/>
+                        <segue destination="U0d-H7-Ick" kind="show" identifier="PackagingToTestSegue" id="VvF-jE-X9s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XvZ-do-wh4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1517,7 +1518,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ejF-y3-rai"/>
+        <segue reference="VvF-jE-X9s"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
