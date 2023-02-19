@@ -56,6 +56,9 @@ class PostResultsCaptureViewController: UIViewController {
         annotateButton.setupButton()
         aiModelButton.setupButton()
         
+        annotateButton.isEnabled = false
+        aiModelButton.isEnabled = false
+        
         findClearestImages(clearest: 5)
         
         //Load each image and stitch them together
@@ -263,6 +266,11 @@ class PostResultsCaptureViewController: UIViewController {
 
         return pixelBuffer
     }
+    
+    @IBAction func doneAction(_ sender: Any) {
+        performSegue(withIdentifier: "backToHomeSegue", sender: nil)
+    }
+    
     
     
 

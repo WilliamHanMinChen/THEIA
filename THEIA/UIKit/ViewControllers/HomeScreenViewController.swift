@@ -55,6 +55,9 @@ class HomeScreenViewController: UIViewController, ASAuthorizationControllerDeleg
         resultsButton.setupButton()
         FAQButton.setupButton()
         
+        resultsButton.isEnabled = false
+        FAQButton.isEnabled = false
+        
         
     }
     
@@ -67,6 +70,9 @@ class HomeScreenViewController: UIViewController, ASAuthorizationControllerDeleg
         let searchBarButtonItem = UIBarButtonItem(customView: containerView)
         searchBarButtonItem.width = 20
         navigationItem.rightBarButtonItem = searchBarButtonItem
+        
+        searchBarButtonItem.isAccessibilityElement = true
+        searchBarButtonItem.accessibilityLabel = "Profile"
     }
     
     

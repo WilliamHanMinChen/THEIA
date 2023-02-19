@@ -684,6 +684,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="T4C-tR-gQr" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="ifz-lJ-W8V"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="VCE-FB-3wX">
                         <rect key="frame" x="0.0" y="59" width="430" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1347,8 +1348,8 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="25" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPf-w1-7l2">
-                                                <rect key="frame" x="20" y="194" width="390" height="248.33333333333337"/>
-                                                <string key="text">Great, during your results capturing session, you will hear sound cues like this:(insert sound) when it detects the test, and a sound cue like this:(insert sound) when your phone captures a photo. Your phone will capture and upload 5 images in total. Double tap your screen when you are ready to move on Great, during your results capturing session, you will hear sound cues like this:(insert sound) when it detects the test, and a sound cue like this:(insert sound) when your phone captures a photo. Your phone will capture and upload 5 images in total. Double tap your screen when you are ready to move on</string>
+                                                <rect key="frame" x="20" y="194" width="390" height="57.333333333333343"/>
+                                                <string key="text">Great, during your results capturing session, you feel haptic feedback when your phone captures an image of the rapid antigen test</string>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1505,20 +1506,27 @@
                             <constraint firstAttribute="bottom" secondItem="Vbh-dL-GzZ" secondAttribute="bottom" id="uX5-Ew-jlI"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Your results" id="bY8-5u-laC"/>
+                    <navigationItem key="navigationItem" title="Your results" id="bY8-5u-laC">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="88K-xF-V37">
+                            <connections>
+                                <action selector="doneAction:" destination="cOe-rq-BIj" id="fjO-Gg-dTD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="aiModelButton" destination="X0D-2W-Njx" id="AQv-Jk-yW8"/>
                         <outlet property="annotateButton" destination="hJl-Db-5OY" id="Jx3-7p-yT1"/>
                         <outlet property="shareButton" destination="S2z-pO-ybC" id="2DO-jm-ydy"/>
+                        <segue destination="T4C-tR-gQr" kind="show" identifier="backToHomeSegue" id="D2p-hT-fan"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Oq-6J-Dd4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9496.7441860465115" y="842.70386266094431"/>
+            <point key="canvasLocation" x="9417" y="843"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="VvF-jE-X9s"/>
+        <segue reference="unE-36-ylL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
