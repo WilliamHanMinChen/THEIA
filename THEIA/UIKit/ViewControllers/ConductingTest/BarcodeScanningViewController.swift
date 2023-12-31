@@ -11,7 +11,7 @@ import Vision
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-class BarcodeScanningViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
+class BarcodeScanningViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureDepthDataOutputDelegate {
     
     
     @IBOutlet weak var previewView: UIView!
@@ -35,6 +35,10 @@ class BarcodeScanningViewController: UIViewController, AVCaptureVideoDataOutputS
     
     //Video capture device reference
     var videoCaptureDevice: AVCaptureDevice?
+    
+    var depthDataOutput: AVCaptureDepthDataOutput!
+    var outputVideoSync: AVCaptureDataOutputSynchronizer!
+    let videoQueue = DispatchQueue(label: "com.example.apple-samplecode.VideoQueue", qos: .userInteractive)
     
     // Vision parts
     private var requests = [VNRequest]()
@@ -118,7 +122,7 @@ class BarcodeScanningViewController: UIViewController, AVCaptureVideoDataOutputS
         var deviceInput: AVCaptureDeviceInput!
         
         // Select a video device, make an input
-        let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back).devices.first
+        let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInLiDARDepthCamera], mediaType: .video, position: .back).devices.first
         do {
             deviceInput = try AVCaptureDeviceInput(device: videoDevice!)
         } catch {
@@ -142,6 +146,26 @@ class BarcodeScanningViewController: UIViewController, AVCaptureVideoDataOutputS
             videoDataOutput.alwaysDiscardsLateVideoFrames = true
             videoDataOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: Int(kCVPixelFormatType_420YpCbCr8BiPlanarFullRange)]
             videoDataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
+            
+            //Add depth data capturer
+            // Create an object to output depth data.
+            depthDataOutput = AVCaptureDepthDataOutput()
+            depthDataOutput.isFilteringEnabled = true
+            depthDataOutput.setDelegate(self, callbackQueue: DispatchQueue(label: "com.example.apple-samplecode.VideoQueue"))
+
+            session.addOutput(depthDataOutput)
+            
+            
+//            // Create an object to synchronize the delivery of depth and video data.
+//            outputVideoSync = AVCaptureDataOutputSynchronizer(dataOutputs: [depthDataOutput, videoDataOutput])
+//            outputVideoSync.setDelegate(self, queue: videoQueue)
+//
+//            // Enable camera intrinsics matrix delivery.
+//            guard let outputConnection = videoDataOutput.connection(with: .video) else { return }
+//            if outputConnection.isCameraIntrinsicMatrixDeliverySupported {
+//                outputConnection.isCameraIntrinsicMatrixDeliveryEnabled = true
+//            }
+            
         } else {
             print("Could not add video data output to the session")
             session.commitConfiguration()
@@ -171,11 +195,40 @@ class BarcodeScanningViewController: UIViewController, AVCaptureVideoDataOutputS
         rootLayer.addSublayer(previewLayer)
     }
     
+    
+    func depthDataOutput(_ output: AVCaptureDepthDataOutput, didOutput depthData: AVDepthData, timestamp: CMTime, connection: AVCaptureConnection) {
+        
+        //
+        // Convert Disparity to Depth
+        //
+        let depthData = depthData.converting(toDepthDataType: kCVPixelFormatType_DepthFloat32)
+        let depthDataMap = depthData.depthDataMap //AVDepthData -> CVPixelBuffer
+        //
+        // We convert the data
+        //
+        CVPixelBufferLockBaseAddress(depthDataMap, CVPixelBufferLockFlags(rawValue: 0))
+        let depthPointer = unsafeBitCast(CVPixelBufferGetBaseAddress(depthDataMap), to: UnsafeMutablePointer<Float32>.self)
+
+        
+        let distanceAtXYPoint = depthPointer[0]
+        
+        print("Distance is \(distanceAtXYPoint)")
+        
+        
+        print("Got depth data ")
+    }
+    
+    
+    
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        
+        
+        print("Called OG")
         
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
             return
         }
+        
         
         let exifOrientation = exifOrientationFromDeviceOrientation()
         
@@ -214,6 +267,8 @@ class BarcodeScanningViewController: UIViewController, AVCaptureVideoDataOutputS
         }
         return exifOrientation
     }
+    
+    
     
     
     //Setup Barcode scanning request
@@ -332,4 +387,30 @@ class BarcodeScanningViewController: UIViewController, AVCaptureVideoDataOutputS
 
     
 
+}
+
+
+
+// MARK: Output Synchronizer Delegate
+extension BarcodeScanningViewController: AVCaptureDataOutputSynchronizerDelegate {
+    
+    func dataOutputSynchronizer(_ synchronizer: AVCaptureDataOutputSynchronizer,
+                                didOutput synchronizedDataCollection: AVCaptureSynchronizedDataCollection) {
+        // Retrieve the synchronized depth and sample buffer container objects.
+        guard let syncedDepthData = synchronizedDataCollection.synchronizedData(for: depthDataOutput) as? AVCaptureSynchronizedDepthData,
+              let syncedVideoData = synchronizedDataCollection.synchronizedData(for: videoDataOutput) as? AVCaptureSynchronizedSampleBufferData else { return }
+        
+        guard let pixelBuffer = syncedVideoData.sampleBuffer.imageBuffer,
+              let cameraCalibrationData = syncedDepthData.depthData.cameraCalibrationData else { return }
+        
+        print("Got all data")
+//        // Package the captured data.
+//        let data = CameraCapturedData(depth: syncedDepthData.depthData.depthDataMap.texture(withFormat: .r16Float, planeIndex: 0, addToCache: textureCache),
+//                                      colorY: pixelBuffer.texture(withFormat: .r8Unorm, planeIndex: 0, addToCache: textureCache),
+//                                      colorCbCr: pixelBuffer.texture(withFormat: .rg8Unorm, planeIndex: 1, addToCache: textureCache),
+//                                      cameraIntrinsics: cameraCalibrationData.intrinsicMatrix,
+//                                      cameraReferenceDimensions: cameraCalibrationData.intrinsicMatrixReferenceDimensions)
+//
+//        delegate?.onNewData(capturedData: data)
+    }
 }

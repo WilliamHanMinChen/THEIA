@@ -9,8 +9,8 @@ import UIKit
 
 class Step: NSObject, Codable {
     
-    var stepDescription: String
-    var audioURL: String
+    var stepDescription: String?
+    var audioURL: String?
     
     init(stepDescription: String, audioURL: String) {
         self.stepDescription = stepDescription

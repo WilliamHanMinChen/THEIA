@@ -50,6 +50,9 @@ class ProfileViewController: UIViewController, DatabaseListener {
         transactionsButton.setupButton()
         contactUsButton.setupButton()
         
+        transactionsButton.isEnabled = false
+        contactUsButton.isEnabled = false
+        
     }
     
     //This registers this class to receive updates from the database
