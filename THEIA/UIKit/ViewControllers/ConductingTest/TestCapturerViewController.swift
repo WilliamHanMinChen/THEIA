@@ -82,7 +82,10 @@ class TestCapturerViewController: ViewController {
         
     }
     
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        scanningSoundAudioPlayer?.stop()
+        super.viewWillDisappear(animated)
+    }
     
     func generateComposition(urls: [URL]) throws -> AVComposition {
         let composition = AVMutableComposition()
@@ -115,9 +118,13 @@ class TestCapturerViewController: ViewController {
         let error: NSError! = nil
         
         
-        guard let modelName = scannedTest?.capturingModelName else {
-            fatalError("Failed to get model name used for capturing the test")
-        }
+        //MARK: CHANGE THIS LATER WHEN OUT OF TESTING MODE
+//        guard let modelName = scannedTest?.capturingModelName else {
+//            fatalError("Failed to get model name used for capturing the test")
+//        }
+        
+        let modelName = "detectRATV2"
+        
         
         //Load the Corresponding ML file
         guard let modelURL = Bundle.main.url(forResource: modelName, withExtension: "mlmodelc") else {

@@ -41,6 +41,7 @@ class HomeScreenViewController: UIViewController, ASAuthorizationControllerDeleg
     
 
     override func viewDidLoad() {
+                
         super.viewDidLoad()
 
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
@@ -301,8 +302,6 @@ extension UIButton {
         self.titleLabel?.minimumScaleFactor = 0.5
         self.titleLabel?.adjustsFontSizeToFitWidth = true
         self.tintColor = .black
-        
-        
         
     }
     

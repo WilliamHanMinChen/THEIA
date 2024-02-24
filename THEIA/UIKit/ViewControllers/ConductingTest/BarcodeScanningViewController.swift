@@ -212,10 +212,6 @@ class BarcodeScanningViewController: UIViewController, AVCaptureVideoDataOutputS
         
         let distanceAtXYPoint = depthPointer[0]
         
-        print("Distance is \(distanceAtXYPoint)")
-        
-        
-        print("Got depth data ")
     }
     
     
@@ -223,7 +219,6 @@ class BarcodeScanningViewController: UIViewController, AVCaptureVideoDataOutputS
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         
         
-        print("Called OG")
         
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
             return

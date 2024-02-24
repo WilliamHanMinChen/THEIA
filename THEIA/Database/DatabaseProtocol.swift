@@ -73,5 +73,11 @@ protocol DatabaseProtocol: AnyObject {
     //Get our EndUser
     func getEndUser()
     
+    //Add new annotation Job
+    func addNewAnnotationJob(userEmail: String) -> String
+    
+    //Update annotation job links
+    func updateAnnotationJobLinks(annotationID: String, links: [String])
+    
 
 }

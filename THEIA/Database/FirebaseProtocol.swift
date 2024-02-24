@@ -10,8 +10,11 @@ import Firebase
 import FirebaseFirestoreSwift
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseStorage
 
 class FirebaseController: NSObject , DatabaseProtocol{
+
+    
     
     
     func addListener(listener: DatabaseListener) {
@@ -56,6 +59,7 @@ class FirebaseController: NSObject , DatabaseProtocol{
     var usersRef: CollectionReference?
     var testTypesRef: CollectionReference?
     var testsRef: CollectionReference?
+    var annotationJobsRef: CollectionReference?
     
     
     //Holds our test types
@@ -118,6 +122,7 @@ class FirebaseController: NSObject , DatabaseProtocol{
                 //self.user = await self.getUserByUID(uid: currentUser.uid)
             }
         }
+        
         
     }
     
@@ -333,6 +338,35 @@ class FirebaseController: NSObject , DatabaseProtocol{
 
         }
         
+    }
+    
+    func addNewAnnotationJob(userEmail: String) -> String {
+        
+        //Get the annotations collection reference
+        annotationJobsRef = database.collection("annotations")
+        
+        //Create the document
+        let documentReference = annotationJobsRef!.addDocument(data: [
+            "imageLinks" : [],
+            "userID" : userEmail
+                ])
+        
+        return documentReference.documentID
+    }
+    
+    func updateAnnotationJobLinks(annotationID: String, links: [String]) {
+        //Get the annotations collection reference
+        annotationJobsRef = database.collection("annotations")
+        
+        let documentRef = annotationJobsRef!.document(annotationID)
+
+        // Set the "capital" field of the city 'DC'
+        documentRef.updateData([
+            "imageLinks": links
+          ])
+        
+        
+        print("Updated \(annotationID) with \(links)")
     }
 
     

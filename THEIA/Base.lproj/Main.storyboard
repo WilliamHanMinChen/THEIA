@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T4C-tR-gQr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T4C-tR-gQr">
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -686,7 +687,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ifz-lJ-W8V"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="VCE-FB-3wX">
-                        <rect key="frame" x="0.0" y="59" width="430" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -697,7 +698,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kNZ-7V-nYg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-24" y="843"/>
+            <point key="canvasLocation" x="-17" y="843"/>
         </scene>
         <!--Scan your test-->
         <scene sceneID="VXr-kY-HrM">
@@ -1496,12 +1497,31 @@
                                     <constraint firstItem="hJl-Db-5OY" firstAttribute="top" secondItem="S2z-pO-ybC" secondAttribute="bottom" constant="8" symbolic="YES" id="y6Y-Zv-CPl"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aG5-my-Jpt" userLabel="Spinner">
+                                <rect key="frame" x="165" y="416" width="100" height="100"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="00y-Ag-tsA">
+                                        <rect key="frame" x="40" y="40" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="00y-Ag-tsA" firstAttribute="centerY" secondItem="aG5-my-Jpt" secondAttribute="centerY" id="35D-PA-ZXk"/>
+                                    <constraint firstItem="00y-Ag-tsA" firstAttribute="centerX" secondItem="aG5-my-Jpt" secondAttribute="centerX" id="6MG-Of-5z8"/>
+                                    <constraint firstItem="00y-Ag-tsA" firstAttribute="centerX" secondItem="aG5-my-Jpt" secondAttribute="centerX" id="Lcs-W3-p7E"/>
+                                    <constraint firstItem="00y-Ag-tsA" firstAttribute="centerY" secondItem="aG5-my-Jpt" secondAttribute="centerY" id="NYk-De-p9K"/>
+                                    <constraint firstAttribute="width" constant="100" id="ZDO-6W-1V9"/>
+                                    <constraint firstAttribute="height" constant="100" id="ekZ-E5-88S"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wrh-yC-yFP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Vbh-dL-GzZ" firstAttribute="leading" secondItem="wrh-yC-yFP" secondAttribute="leading" id="8dW-SC-IjV"/>
+                            <constraint firstItem="aG5-my-Jpt" firstAttribute="centerY" secondItem="ayO-4x-cbp" secondAttribute="centerY" id="AYR-UU-1A1"/>
                             <constraint firstItem="Vbh-dL-GzZ" firstAttribute="top" secondItem="wrh-yC-yFP" secondAttribute="top" id="MD6-Je-MeY"/>
+                            <constraint firstItem="aG5-my-Jpt" firstAttribute="centerX" secondItem="ayO-4x-cbp" secondAttribute="centerX" id="aNc-DT-oJE"/>
                             <constraint firstItem="Vbh-dL-GzZ" firstAttribute="trailing" secondItem="wrh-yC-yFP" secondAttribute="trailing" id="t8G-ld-PAI"/>
                             <constraint firstAttribute="bottom" secondItem="Vbh-dL-GzZ" secondAttribute="bottom" id="uX5-Ew-jlI"/>
                         </constraints>
@@ -1514,15 +1534,156 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="00y-Ag-tsA" id="B4C-cW-NAa"/>
                         <outlet property="aiModelButton" destination="X0D-2W-Njx" id="AQv-Jk-yW8"/>
                         <outlet property="annotateButton" destination="hJl-Db-5OY" id="Jx3-7p-yT1"/>
+                        <outlet property="loadingView" destination="aG5-my-Jpt" id="XZJ-yB-hDW"/>
                         <outlet property="shareButton" destination="S2z-pO-ybC" id="2DO-jm-ydy"/>
                         <segue destination="T4C-tR-gQr" kind="presentation" identifier="backToHomeSegue" modalPresentationStyle="fullScreen" id="D2p-hT-fan"/>
+                        <segue destination="GdF-FX-jHR" kind="show" identifier="resultsToAnnotateSegue" id="A8O-f2-4hH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Oq-6J-Dd4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="9417" y="843"/>
+        </scene>
+        <!--Human Annotators-->
+        <scene sceneID="oRs-2a-YOh">
+            <objects>
+                <viewController id="GdF-FX-jHR" customClass="SubmitAnnotationViewController" customModule="THEIA" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="szv-J0-LtK">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="22" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03r-Kw-ewY">
+                                <rect key="frame" x="20" y="187.00000000000003" width="390" height="286.66666666666674"/>
+                                <string key="text">We offer a paid service to have your results anonymously annotated by our team of annotators. This service costs 20c for this test and will be deducted from your balance. There will be no personal information shared the human annotators and we will only be providing the description of the lines and not be performing any diagnosis. 
+
+The results will be available within the next 24 hours</string>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRH-Cv-1r6">
+                                <rect key="frame" x="20" y="668" width="390" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="5rd-oe-1Bv"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Send for annotation">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="24"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="sendForAnnotationAction:" destination="GdF-FX-jHR" eventType="touchUpInside" id="xgc-1d-q37"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C3l-SL-pwY">
+                                <rect key="frame" x="165" y="416" width="100" height="100"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="zrE-6p-DkB">
+                                        <rect key="frame" x="40" y="40" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Jcg-i6-Mz1"/>
+                                    <constraint firstItem="zrE-6p-DkB" firstAttribute="centerX" secondItem="C3l-SL-pwY" secondAttribute="centerX" id="aZ6-XV-0km"/>
+                                    <constraint firstItem="zrE-6p-DkB" firstAttribute="centerY" secondItem="C3l-SL-pwY" secondAttribute="centerY" id="ajb-eI-QRl"/>
+                                    <constraint firstAttribute="height" constant="100" id="hx9-r6-4NE"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JBS-In-HQQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="C3l-SL-pwY" firstAttribute="centerX" secondItem="szv-J0-LtK" secondAttribute="centerX" id="GVg-4g-EKg"/>
+                            <constraint firstItem="C3l-SL-pwY" firstAttribute="centerY" secondItem="szv-J0-LtK" secondAttribute="centerY" id="HRK-fo-9ar"/>
+                            <constraint firstItem="JBS-In-HQQ" firstAttribute="trailing" secondItem="03r-Kw-ewY" secondAttribute="trailing" constant="20" id="M5s-A2-WI6"/>
+                            <constraint firstItem="03r-Kw-ewY" firstAttribute="leading" secondItem="JBS-In-HQQ" secondAttribute="leading" constant="20" id="MVt-vp-ohn"/>
+                            <constraint firstItem="C3l-SL-pwY" firstAttribute="centerX" secondItem="szv-J0-LtK" secondAttribute="centerX" id="Wcq-eR-6Cz"/>
+                            <constraint firstItem="JBS-In-HQQ" firstAttribute="trailing" secondItem="lRH-Cv-1r6" secondAttribute="trailing" constant="20" id="Zdh-Ue-azU"/>
+                            <constraint firstItem="lRH-Cv-1r6" firstAttribute="leading" secondItem="JBS-In-HQQ" secondAttribute="leading" constant="20" id="dAH-0V-kDd"/>
+                            <constraint firstAttribute="bottom" secondItem="lRH-Cv-1r6" secondAttribute="bottom" constant="164" id="dwg-uQ-zaL"/>
+                            <constraint firstItem="C3l-SL-pwY" firstAttribute="centerY" secondItem="szv-J0-LtK" secondAttribute="centerY" id="nnt-i2-xTN"/>
+                            <constraint firstItem="03r-Kw-ewY" firstAttribute="top" secondItem="JBS-In-HQQ" secondAttribute="top" constant="32" id="ufW-7V-MH4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Human Annotators" id="Rfr-HU-K3k"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="zrE-6p-DkB" id="0sR-yU-LeN"/>
+                        <outlet property="loadingView" destination="C3l-SL-pwY" id="Cdd-Gl-8Gi"/>
+                        <outlet property="sendForAnnotationButton" destination="lRH-Cv-1r6" id="Y1E-QI-6uu"/>
+                        <segue destination="AZp-dw-Rob" kind="show" identifier="uploadToSucessSegue" id="5I2-Ky-EYl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="af1-Xd-KsO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10377" y="843"/>
+        </scene>
+        <!--Success-->
+        <scene sceneID="FMR-01-Cnd">
+            <objects>
+                <viewController id="AZp-dw-Rob" customClass="FinishedUploadingViewController" customModule="THEIA" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hvh-yZ-Ngp">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have finished conducting the test, the results of the test will be available in the results screen of the app." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="22" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZ7-rm-FIF">
+                                <rect key="frame" x="20" y="187" width="390" height="71.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p0Q-Ho-I86">
+                                <rect key="frame" x="20" y="668" width="390" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Q36-aN-Obq"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Finish">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="24"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="finishButtonPressed:" destination="AZp-dw-Rob" eventType="touchUpInside" id="Nb6-uz-h4i"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="daf-7a-JeS">
+                                <rect key="frame" x="20" y="560" width="390" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="YZG-uB-8fg"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Choose another option">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="24"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="anotherOptionButtonPressed:" destination="AZp-dw-Rob" eventType="touchUpInside" id="j4F-Dl-jt8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2KT-ff-AGy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PZ7-rm-FIF" firstAttribute="leading" secondItem="2KT-ff-AGy" secondAttribute="leading" constant="20" id="2fg-yD-Tuv"/>
+                            <constraint firstItem="daf-7a-JeS" firstAttribute="leading" secondItem="2KT-ff-AGy" secondAttribute="leading" constant="20" id="BNG-Uu-h8q"/>
+                            <constraint firstItem="p0Q-Ho-I86" firstAttribute="top" secondItem="daf-7a-JeS" secondAttribute="bottom" constant="8" symbolic="YES" id="bAY-T2-m4W"/>
+                            <constraint firstItem="PZ7-rm-FIF" firstAttribute="top" secondItem="2KT-ff-AGy" secondAttribute="top" constant="32" id="bKi-uu-gNS"/>
+                            <constraint firstItem="2KT-ff-AGy" firstAttribute="bottom" secondItem="p0Q-Ho-I86" secondAttribute="bottom" constant="32" id="iUM-Pu-E5T"/>
+                            <constraint firstItem="2KT-ff-AGy" firstAttribute="trailing" secondItem="PZ7-rm-FIF" secondAttribute="trailing" constant="20" id="ic6-Gb-Q1v"/>
+                            <constraint firstItem="p0Q-Ho-I86" firstAttribute="leading" secondItem="2KT-ff-AGy" secondAttribute="leading" constant="20" id="kdK-xS-2L7"/>
+                            <constraint firstItem="2KT-ff-AGy" firstAttribute="trailing" secondItem="p0Q-Ho-I86" secondAttribute="trailing" constant="20" id="rU8-Qq-vyt"/>
+                            <constraint firstItem="2KT-ff-AGy" firstAttribute="trailing" secondItem="daf-7a-JeS" secondAttribute="trailing" constant="20" id="uIK-QW-gaP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Success" id="DZ8-ba-jfd"/>
+                    <connections>
+                        <outlet property="anotherOptionButton" destination="daf-7a-JeS" id="vRb-XY-m1V"/>
+                        <outlet property="finishButton" destination="p0Q-Ho-I86" id="pgu-e9-ojn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bhg-Fg-s6L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11212" y="843"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -1533,10 +1694,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemGroupedBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

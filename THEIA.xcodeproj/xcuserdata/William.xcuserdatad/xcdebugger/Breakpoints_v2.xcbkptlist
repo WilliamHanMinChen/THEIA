@@ -30,8 +30,24 @@
             filePath = "THEIA/UIKit/ViewControllers/ConductingTest/BarcodeScanningViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "313"
-            endingLineNumber = "313"
+            startingLineNumber = "308"
+            endingLineNumber = "308"
+            landmarkName = "detectedBarcode(request:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B79C7B4A-5974-44E3-859F-36D3A9F85B91"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "THEIA/UIKit/ViewControllers/BarcodeScannerViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "270"
+            endingLineNumber = "270"
             landmarkName = "detectedBarcode(request:error:)"
             landmarkType = "7">
          </BreakpointContent>

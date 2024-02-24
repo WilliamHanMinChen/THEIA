@@ -47,7 +47,13 @@ class PostResultsCaptureViewController: UIViewController {
     
     var storageReference = Storage.storage()
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var loadingView: UIView! {
+      didSet {
+        loadingView.layer.cornerRadius = 6
+      }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,8 +62,10 @@ class PostResultsCaptureViewController: UIViewController {
         annotateButton.setupButton()
         aiModelButton.setupButton()
         
-        annotateButton.isEnabled = false
+//        annotateButton.isEnabled = false
         aiModelButton.isEnabled = false
+        
+        loadingView.isHidden = true
         
         findClearestImages(clearest: 5)
         
@@ -221,33 +229,46 @@ class PostResultsCaptureViewController: UIViewController {
     
     @IBAction func shareAction(_ sender: Any) {
         
-        //Get the paths
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        //Gets the documents directory
-        let documentsDirectory = paths[0]
         
+        DispatchQueue.main.async {
+            //Show the loading indicator
+            self.activityIndicator.startAnimating()
+            self.loadingView.isHidden = false
+        }
         
-        let fileURL = documentsDirectory.appendingPathComponent("StitchedFile.png")
+        DispatchQueue.main.async {
+            //Get the paths
+            let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+            //Gets the documents directory
+            let documentsDirectory = paths[0]
+            
+            
+            let fileURL = documentsDirectory.appendingPathComponent("StitchedFile.png")
+            
         
-    
 
-        // Create the Array which includes the files you want to share
-        var filesToShare = [Any]()
+            // Create the Array which includes the files you want to share
+            var filesToShare = [Any]()
 
-        // Add the path of the file to the Array
-        filesToShare.append(fileURL)
+            // Add the path of the file to the Array
+            filesToShare.append(fileURL)
 
-        // Make the activityViewContoller which shows the share-view
-        let activityViewController = UIActivityViewController(activityItems: filesToShare, applicationActivities: nil)
+            // Make the activityViewContoller which shows the share-view
+            let activityViewController = UIActivityViewController(activityItems: filesToShare, applicationActivities: nil)
 
-        // Show the share-view
-        self.present(activityViewController, animated: true, completion: nil)
-        
+            // Show the share-view
+            self.present(activityViewController, animated: true, completion: nil)
+            
+            //Stop the loading indicator
+            self.activityIndicator.stopAnimating()
+            self.loadingView.isHidden = true
+        }
         
     }
     
     
     @IBAction func annotatedAction(_ sender: Any) {
+        self.performSegue(withIdentifier: "resultsToAnnotateSegue", sender: nil)
     }
     
     @IBAction func aiAction(_ sender: Any) {
@@ -272,6 +293,21 @@ class PostResultsCaptureViewController: UIViewController {
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //Give the next VC the list of clear images
+        if segue.identifier == "resultsToAnnotateSegue"{
+            let destionation = segue.destination as! SubmitAnnotationViewController
+            
+            //Make sure that we do have clear images
+            guard self.clearImages.count > 0 else {
+                fatalError("There are no clear images within the list")
+            }
+            
+            destionation.clearImages = self.clearImages
+            
+        }
+    }
     
 
     /*
