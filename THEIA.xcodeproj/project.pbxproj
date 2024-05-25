@@ -11,6 +11,15 @@
 		3D039F0F2B417B6700B89C12 /* AnnotationJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D039F0E2B417B6700B89C12 /* AnnotationJob.swift */; };
 		3D081C082993DD36005CF49D /* ScanTestPackagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D081C072993DD36005CF49D /* ScanTestPackagingViewController.swift */; };
 		3D081C0A2994BCD7005CF49D /* SearchTestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D081C092994BCD7005CF49D /* SearchTestsTableViewController.swift */; };
+		3D3B92CC2BA551850045CF64 /* SwiftCSVExport in Frameworks */ = {isa = PBXBuildFile; productRef = 3D3B92CB2BA551850045CF64 /* SwiftCSVExport */; };
+		3D3B92CE2BA6EFF00045CF64 /* LearnMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3B92CD2BA6EFF00045CF64 /* LearnMoreViewController.swift */; };
+		3D3CCC572B934E4300F80761 /* InterpretationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3CCC562B934E4300F80761 /* InterpretationViewController.swift */; };
+		3D3CCC592B9353CE00F80761 /* ResultsInterpreterV1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3D3CCC582B9353CE00F80761 /* ResultsInterpreterV1.mlmodel */; };
+		3D7871562BB91F4A0094FDE3 /* ResultsInterpreter V2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3D7871552BB91F4A0094FDE3 /* ResultsInterpreter V2.mlmodel */; };
+		3D7871582BB925E90094FDE3 /* ResultsInterpreter V3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3D7871572BB925E90094FDE3 /* ResultsInterpreter V3.mlmodel */; };
+		3D78715A2BB92A2E0094FDE3 /* ResultsInterpreter V4.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3D7871592BB92A2E0094FDE3 /* ResultsInterpreter V4.mlmodel */; };
+		3D78716E2BBC26A00094FDE3 /* ResultsInterpreter V6.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3D78716D2BBC26A00094FDE3 /* ResultsInterpreter V6.mlmodel */; };
+		3D7871702BBEAE620094FDE3 /* ResultsInterpreter V7.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3D78716F2BBEAE620094FDE3 /* ResultsInterpreter V7.mlmodel */; };
 		3D7AEF38297C18D500D3E316 /* PreparingResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7AEF37297C18D500D3E316 /* PreparingResultsViewController.swift */; };
 		3D7AEF3A297CBE9200D3E316 /* TestCapturerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7AEF39297CBE9200D3E316 /* TestCapturerViewController.swift */; };
 		3D7C1DB72967CFF00018B245 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7C1DB62967CFF00018B245 /* TestViewController.swift */; };
@@ -45,6 +54,7 @@
 		3DC194E3296BD1FE00187F66 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3DC194E2296BD1FE00187F66 /* FirebaseStorage */; };
 		3DC194E5296BD74E00187F66 /* PhoneVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC194E4296BD74E00187F66 /* PhoneVerificationViewController.swift */; };
 		3DC194E7296BDEE900187F66 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DC194E6296BDEE900187F66 /* GoogleService-Info.plist */; };
+		3DC2FAE02B8AD6BF00EDFF00 /* StudyHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC2FADF2B8AD6BF00EDFF00 /* StudyHomeViewController.swift */; };
 		3DDBDE912964E7C400CA09FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDBDE902964E7C400CA09FE /* AppDelegate.swift */; };
 		3DDBDE932964E7C400CA09FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDBDE922964E7C400CA09FE /* SceneDelegate.swift */; };
 		3DDBDE982964E7C400CA09FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DDBDE962964E7C400CA09FE /* Main.storyboard */; };
@@ -78,6 +88,14 @@
 		3D039F0E2B417B6700B89C12 /* AnnotationJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationJob.swift; sourceTree = "<group>"; };
 		3D081C072993DD36005CF49D /* ScanTestPackagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanTestPackagingViewController.swift; sourceTree = "<group>"; };
 		3D081C092994BCD7005CF49D /* SearchTestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTestsTableViewController.swift; sourceTree = "<group>"; };
+		3D3B92CD2BA6EFF00045CF64 /* LearnMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnMoreViewController.swift; sourceTree = "<group>"; };
+		3D3CCC562B934E4300F80761 /* InterpretationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterpretationViewController.swift; sourceTree = "<group>"; };
+		3D3CCC582B9353CE00F80761 /* ResultsInterpreterV1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ResultsInterpreterV1.mlmodel; sourceTree = "<group>"; };
+		3D7871552BB91F4A0094FDE3 /* ResultsInterpreter V2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "ResultsInterpreter V2.mlmodel"; sourceTree = "<group>"; };
+		3D7871572BB925E90094FDE3 /* ResultsInterpreter V3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "ResultsInterpreter V3.mlmodel"; sourceTree = "<group>"; };
+		3D7871592BB92A2E0094FDE3 /* ResultsInterpreter V4.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "ResultsInterpreter V4.mlmodel"; sourceTree = "<group>"; };
+		3D78716D2BBC26A00094FDE3 /* ResultsInterpreter V6.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "ResultsInterpreter V6.mlmodel"; sourceTree = "<group>"; };
+		3D78716F2BBEAE620094FDE3 /* ResultsInterpreter V7.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "ResultsInterpreter V7.mlmodel"; sourceTree = "<group>"; };
 		3D7AEF37297C18D500D3E316 /* PreparingResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparingResultsViewController.swift; sourceTree = "<group>"; };
 		3D7AEF39297CBE9200D3E316 /* TestCapturerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCapturerViewController.swift; sourceTree = "<group>"; };
 		3D7C1DB62967CFF00018B245 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +121,7 @@
 		3DC194CF296B9D1900187F66 /* TopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopUpViewController.swift; sourceTree = "<group>"; };
 		3DC194E4296BD74E00187F66 /* PhoneVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerificationViewController.swift; sourceTree = "<group>"; };
 		3DC194E6296BDEE900187F66 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3DC2FADF2B8AD6BF00EDFF00 /* StudyHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyHomeViewController.swift; sourceTree = "<group>"; };
 		3DDBDE8D2964E7C400CA09FE /* THEIA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = THEIA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DDBDE902964E7C400CA09FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DDBDE922964E7C400CA09FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +161,7 @@
 				3DC194DB296BD1FE00187F66 /* FirebaseFirestoreSwift in Frameworks */,
 				3DC194DF296BD1FE00187F66 /* FirebaseInAppMessaging-Beta in Frameworks */,
 				3DC194E3296BD1FE00187F66 /* FirebaseStorage in Frameworks */,
+				3D3B92CC2BA551850045CF64 /* SwiftCSVExport in Frameworks */,
 				3DC194E1296BD1FE00187F66 /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
 				3DC194D7296BD1FE00187F66 /* FirebaseDatabaseSwift in Frameworks */,
 				3DC194D9296BD1FE00187F66 /* FirebaseFirestore in Frameworks */,
@@ -170,6 +190,8 @@
 				3DE2D5DA29668CF5008D445E /* ComponentsLearningViewController.swift */,
 				3D039F0C2B41720400B89C12 /* SubmitAnnotationViewController.swift */,
 				3DFD06B42B4C015400FCEBD7 /* FinishedUploadingViewController.swift */,
+				3D3CCC562B934E4300F80761 /* InterpretationViewController.swift */,
+				3D3B92CD2BA6EFF00045CF64 /* LearnMoreViewController.swift */,
 			);
 			path = ConductingTest;
 			sourceTree = "<group>";
@@ -258,6 +280,7 @@
 				3DAAF3A1296E651C00F16C61 /* TransactionsTableViewController.swift */,
 				3D081C072993DD36005CF49D /* ScanTestPackagingViewController.swift */,
 				3D081C092994BCD7005CF49D /* SearchTestsTableViewController.swift */,
+				3DC2FADF2B8AD6BF00EDFF00 /* StudyHomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -265,12 +288,18 @@
 		3DE2D5E429668D6B008D445E /* ObjectDetection */ = {
 			isa = PBXGroup;
 			children = (
+				3D3CCC582B9353CE00F80761 /* ResultsInterpreterV1.mlmodel */,
 				3DE2D5E529668D6B008D445E /* detectRAT.mlmodel */,
+				3D7871572BB925E90094FDE3 /* ResultsInterpreter V3.mlmodel */,
+				3D7871552BB91F4A0094FDE3 /* ResultsInterpreter V2.mlmodel */,
+				3D78716F2BBEAE620094FDE3 /* ResultsInterpreter V7.mlmodel */,
 				3DE2D5E629668D6B008D445E /* detectRATV2.mlmodel */,
 				3DE2D5E729668D6B008D445E /* yolov7.mlmodel */,
+				3D78716D2BBC26A00094FDE3 /* ResultsInterpreter V6.mlmodel */,
 				3DE2D5E829668D6B008D445E /* detectRAT (1).mlmodel */,
 				3DE2D5E929668D6B008D445E /* ObjectDetector.mlmodel */,
 				3DE2D5EA29668D6B008D445E /* RAT20000.mlmodel */,
+				3D7871592BB92A2E0094FDE3 /* ResultsInterpreter V4.mlmodel */,
 				3DE2D5EB29668D6B008D445E /* RATClassificationV1.mlmodel */,
 			);
 			path = ObjectDetection;
@@ -332,6 +361,7 @@
 				3DC194DE296BD1FE00187F66 /* FirebaseInAppMessaging-Beta */,
 				3DC194E0296BD1FE00187F66 /* FirebaseInAppMessagingSwift-Beta */,
 				3DC194E2296BD1FE00187F66 /* FirebaseStorage */,
+				3D3B92CB2BA551850045CF64 /* SwiftCSVExport */,
 			);
 			productName = THEIA;
 			productReference = 3DDBDE8D2964E7C400CA09FE /* THEIA.app */;
@@ -363,6 +393,7 @@
 			mainGroup = 3DDBDE842964E7C400CA09FE;
 			packageReferences = (
 				3DC194D1296BD1FE00187F66 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				3D3B92CA2BA551850045CF64 /* XCRemoteSwiftPackageReference "SwiftCSVExport" */,
 			);
 			productRefGroup = 3DDBDE8E2964E7C400CA09FE /* Products */;
 			projectDirPath = "";
@@ -418,18 +449,24 @@
 				3DE2D5DC29668CF5008D445E /* PostResultsCaptureViewController.swift in Sources */,
 				3DA500EC297AA57000F75E4B /* TestTypeTableViewCell.swift in Sources */,
 				3DA500E8297A95CF00F75E4B /* TestInformationViewController.swift in Sources */,
+				3DC2FAE02B8AD6BF00EDFF00 /* StudyHomeViewController.swift in Sources */,
 				3DAAF39B296D217700F16C61 /* EndUser.swift in Sources */,
 				3DE2D5FC29668D6B008D445E /* Step.swift in Sources */,
+				3D7871582BB925E90094FDE3 /* ResultsInterpreter V3.mlmodel in Sources */,
 				3DDBDE9B2964E7C400CA09FE /* THEIA.xcdatamodeld in Sources */,
 				3D7C1DB72967CFF00018B245 /* TestViewController.swift in Sources */,
 				3DC194D0296B9D1900187F66 /* TopUpViewController.swift in Sources */,
 				3DFD06B52B4C015400FCEBD7 /* FinishedUploadingViewController.swift in Sources */,
 				3DE2D5F329668D6B008D445E /* detectRAT.mlmodel in Sources */,
+				3D7871702BBEAE620094FDE3 /* ResultsInterpreter V7.mlmodel in Sources */,
 				3D7AEF38297C18D500D3E316 /* PreparingResultsViewController.swift in Sources */,
+				3D3B92CE2BA6EFF00045CF64 /* LearnMoreViewController.swift in Sources */,
 				3D7AEF3A297CBE9200D3E316 /* TestCapturerViewController.swift in Sources */,
 				3DE2D5E329668CF5008D445E /* ComponentsLearningViewController.swift in Sources */,
 				3DE2D5F829668D6B008D445E /* RAT20000.mlmodel in Sources */,
 				3DE2D5F529668D6B008D445E /* yolov7.mlmodel in Sources */,
+				3D7871562BB91F4A0094FDE3 /* ResultsInterpreter V2.mlmodel in Sources */,
+				3D78715A2BB92A2E0094FDE3 /* ResultsInterpreter V4.mlmodel in Sources */,
 				3D081C082993DD36005CF49D /* ScanTestPackagingViewController.swift in Sources */,
 				3DDBDE912964E7C400CA09FE /* AppDelegate.swift in Sources */,
 				3DAAF3A0296E640200F16C61 /* TransactionTableViewCell.swift in Sources */,
@@ -440,9 +477,12 @@
 				3DAAF3A8296E6AAD00F16C61 /* Test.swift in Sources */,
 				3DA500F0297B6DA200F75E4B /* BarcodeScanningViewController.swift in Sources */,
 				3DC194CE296B930E00187F66 /* ProfileViewController.swift in Sources */,
+				3D3CCC572B934E4300F80761 /* InterpretationViewController.swift in Sources */,
+				3D3CCC592B9353CE00F80761 /* ResultsInterpreterV1.mlmodel in Sources */,
 				3DE2D5F629668D6B008D445E /* detectRAT (1).mlmodel in Sources */,
 				3DE2D5FE29668D6B008D445E /* RATSetup.swift in Sources */,
 				3DAAF398296D214400F16C61 /* DatabaseProtocol.swift in Sources */,
+				3D78716E2BBC26A00094FDE3 /* ResultsInterpreter V6.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,7 +639,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -630,7 +670,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -668,6 +708,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3D3B92CA2BA551850045CF64 /* XCRemoteSwiftPackageReference "SwiftCSVExport" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vigneshuvi/SwiftCSVExport.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.6.0;
+			};
+		};
 		3DC194D1296BD1FE00187F66 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -679,6 +727,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3D3B92CB2BA551850045CF64 /* SwiftCSVExport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3D3B92CA2BA551850045CF64 /* XCRemoteSwiftPackageReference "SwiftCSVExport" */;
+			productName = SwiftCSVExport;
+		};
 		3DC194D2296BD1FE00187F66 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3DC194D1296BD1FE00187F66 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

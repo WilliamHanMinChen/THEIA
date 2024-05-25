@@ -111,7 +111,7 @@ class TestTypesTableViewController: UITableViewController, DatabaseListener {
             //Cast our destination
             let destination = segue.destination as! TestInformationViewController
             //Update our selected Test Type in the next VC
-            destination.selectedTestType = sender
+            destination.testType = sender
             
         }
     }

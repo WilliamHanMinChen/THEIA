@@ -62,8 +62,16 @@ class PostResultsCaptureViewController: UIViewController {
         annotateButton.setupButton()
         aiModelButton.setupButton()
         
-//        annotateButton.isEnabled = false
-        aiModelButton.isEnabled = false
+        shareButton.accessibilityLabel = "Share your results, this option will stitch together the captured images along with the manufacturer's interpretaion guide for you to share with your friends or family, or for you to open in another app."
+        annotateButton.accessibilityLabel = "Sighted Professionals, this option will upload your results to sighted individuals for review, double tap to learn more"
+        aiModelButton.accessibilityLabel = "AI Model, this option will instantly tell you your results by passing it through our AI model."
+
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            if UIAccessibility.isVoiceOverRunning {
+                UIAccessibility.post(notification: .screenChanged, argument: "Results capturing finished. ")
+            }
+        }
         
         loadingView.isHidden = true
         
@@ -204,8 +212,16 @@ class PostResultsCaptureViewController: UIViewController {
                 varianceTexture.getBytes(&result, bytesPerRow: 1 * 2 * 4, from: region, mipmapLevel: 0)
                 let variance = result.last!
                 
-                results.append((i, variance))
-                
+                let uiimage = UIImage(contentsOfFile: imagePath.path)
+                guard let uiimage = uiimage else {
+                    fatalError("Could not load image \(imagePath.path)")
+                }
+                if uiimage.size.width > uiimage.size.height { //Wrong format, skip
+                    results.append((i, -1))
+                } else {
+                    results.append((i, variance))
+
+                }                
                 
             
         }
@@ -222,6 +238,12 @@ class PostResultsCaptureViewController: UIViewController {
         }
     
 
+        
+    }
+    
+    
+    @IBAction func recpatureResultsButton(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
         
     }
     
@@ -272,6 +294,9 @@ class PostResultsCaptureViewController: UIViewController {
     }
     
     @IBAction func aiAction(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "resultsToAIModelSegue", sender: nil)
+
     }
     
     
@@ -298,6 +323,19 @@ class PostResultsCaptureViewController: UIViewController {
         //Give the next VC the list of clear images
         if segue.identifier == "resultsToAnnotateSegue"{
             let destionation = segue.destination as! SubmitAnnotationViewController
+            
+            //Make sure that we do have clear images
+            guard self.clearImages.count > 0 else {
+                fatalError("There are no clear images within the list")
+            }
+            
+            destionation.clearImages = self.clearImages
+            
+        }
+        
+        //Give the next VC the list of clear images
+        if segue.identifier == "resultsToAIModelSegue"{
+            let destionation = segue.destination as! InterpretationViewController
             
             //Make sure that we do have clear images
             guard self.clearImages.count > 0 else {

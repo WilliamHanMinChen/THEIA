@@ -122,6 +122,7 @@ class ScanTestPackagingViewController: UIViewController, ARSessionDelegate, Data
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         dataBaseController?.removeListener(listener: self)
+        arView.session.pause()
     }
     
 
@@ -306,12 +307,13 @@ class ScanTestPackagingViewController: UIViewController, ARSessionDelegate, Data
         
         if segue.identifier == "PackagingToTestSegue" {
             
-            let destination = segue.destination as! ComponentsLearningViewController
+            let destination = segue.destination as! TestInformationViewController
             
             //Cast our sender
             let test = sender as! Test
             
             destination.scannedTest = test
+            destination.testType = testType
             
             //Set our torch to off
             toggleTorch(on: false)

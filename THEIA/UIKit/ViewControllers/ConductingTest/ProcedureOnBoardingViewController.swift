@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SwiftCSVExport
+
 
 class ProcedureOnBoardingViewController: UIViewController {
     
@@ -17,7 +19,7 @@ class ProcedureOnBoardingViewController: UIViewController {
     
     
     //Reference to the title label
-    @IBOutlet weak var titleLabel: UILabel!
+//    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     
     
@@ -27,6 +29,11 @@ class ProcedureOnBoardingViewController: UIViewController {
     //Haptic feedback engine
     let mediumImpact = UIImpactFeedbackGenerator(style: .medium)
     
+    var startedTime = Date()
+    
+    var calendar = Calendar.current
+    
+    var conductingTime:[Int] = []
     
     
     override func viewDidLoad() {
@@ -42,8 +49,8 @@ class ProcedureOnBoardingViewController: UIViewController {
         
         
         // Do any additional setup after loading the view.
-        titleLabel.text = "Step \(stepIndex + 1)"
-        contentLabel.text = steps[stepIndex].stepDescription
+//        titleLabel.text = "Step \(stepIndex + 1)"
+        contentLabel.text = "Step \(stepIndex + 1): " + (steps[stepIndex].stepDescription ?? "")
         
         //Setup the buttons
         nextStepButton.setupButton()
@@ -52,6 +59,21 @@ class ProcedureOnBoardingViewController: UIViewController {
         //Update our navigation heading
         navigationItem.title = "Conduct the test"
         
+        //Check if we have components learning time stored already, if not, instantiate it
+        if conductingTime.isEmpty {
+            conductingTime = []
+            for components in scannedTest?.steps ?? [] {
+                conductingTime.append(0)
+            }
+        }
+        
+        print("Current components time \(conductingTime)")
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        startedTime = Date()
     }
     
 
@@ -66,16 +88,21 @@ class ProcedureOnBoardingViewController: UIViewController {
         //Give haptic feedback
         mediumImpact.impactOccurred()
         
+        updateTime(stepIndex: stepIndex)
+        
+        print("Current conducting time \(conductingTime)")
+
+        
         
         if stepIndex < stepCount - 1 {
             //Increment our counter
             stepIndex += 1
             //Update our labels
-            titleLabel.text = "Step \(stepIndex + 1)"
-            contentLabel.text = steps[stepIndex].stepDescription
+//            titleLabel.text = "Step \(stepIndex + 1)"
+            contentLabel.text = "Step \(stepIndex + 1): " + (steps[stepIndex].stepDescription ?? "")
             
             //Update our voiceover focus
-            UIAccessibility.post(notification: .screenChanged, argument: titleLabel)
+            UIAccessibility.post(notification: .screenChanged, argument: contentLabel)
         }
         //If it is the last step
         if stepIndex == stepCount - 1 {
@@ -90,6 +117,22 @@ class ProcedureOnBoardingViewController: UIViewController {
         }
         
         
+        
+        
+        
+        
+    }
+    
+    
+    func updateTime(stepIndex: Int){
+        
+        //Record time taken and reset the timer
+        guard let secondsPassed = calendar.dateComponents([.second], from: startedTime ?? Date(), to: Date()).second else {
+            fatalError("Could not calculate seconds passed")
+        }
+        conductingTime[stepIndex] = (conductingTime[stepIndex]) + secondsPassed
+        startedTime = Date()
+        
     }
     
     @IBAction func previousStepPressed(_ sender: Any) {
@@ -101,6 +144,10 @@ class ProcedureOnBoardingViewController: UIViewController {
         
         let stepCount = steps.count
         
+        updateTime(stepIndex: stepIndex)
+        print("Current conducting time \(conductingTime)")
+
+
         //Give haptic feedback
         mediumImpact.impactOccurred()
         
@@ -108,8 +155,8 @@ class ProcedureOnBoardingViewController: UIViewController {
             //Decrease our counter
             stepIndex -= 1
             //Update our labels
-            titleLabel.text = "Step \(stepIndex + 1)"
-            contentLabel.text = steps[stepIndex].stepDescription
+//            titleLabel.text = "Step \(stepIndex + 1)"
+            contentLabel.text = "Step \(stepIndex + 1): " + (steps[stepIndex].stepDescription ?? "")
         }
         if stepIndex == stepCount - 2 {
             nextStepButton.setTitle("Next Step", for: .normal)
@@ -127,7 +174,48 @@ class ProcedureOnBoardingViewController: UIViewController {
             let destination = segue.destination as! TimerViewController
             
             destination.scannedTest = self.scannedTest
+            
+            writeData()
         }
+    }
+    
+    func writeData(){
+        
+        //Getting the time completed
+        let date = Date()
+        let timeFormatted = date.getFormattedDate(format: "yyyy-MM-dd-HH-mm-ss")
+        
+        
+        var fileName = timeFormatted + "-" + "steps_learning_time" + "-"
+
+        
+        
+        // Add dictionary into rows of CSV Array
+        let data:NSMutableArray  = NSMutableArray()
+        //Output to CSV
+        for dataPoint in conductingTime {
+            
+            let dataPointData: NSMutableDictionary = NSMutableDictionary()
+            dataPointData.setObject(dataPoint, forKey: "Time spent" as NSCopying);
+            data.add(dataPointData);
+            
+        }
+        
+        // Add fields into columns of CSV headers
+        let header = ["Time spent"]
+        
+        // Create a object for write CSV
+        let writeCSVObj = CSV()
+        writeCSVObj.rows = data
+        writeCSVObj.delimiter = DividerType.comma.rawValue
+        writeCSVObj.fields = header as NSArray
+        writeCSVObj.name = fileName
+        
+        
+        // Write File using CSV class object
+        let result = CSVExport.export(writeCSVObj)
+        
+        print("Exported")
     }
     
 

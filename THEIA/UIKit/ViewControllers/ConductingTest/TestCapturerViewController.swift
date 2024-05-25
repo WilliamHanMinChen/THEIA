@@ -20,6 +20,8 @@ class TestCapturerViewController: ViewController {
     //Test detection requests
     private var requests = [VNRequest]()
     
+    //Object bounds
+    var objectBounds: CGRect?
     
     //Text recognition request
     lazy var textDetectionRequest: VNRecognizeTextRequest = {
@@ -52,6 +54,9 @@ class TestCapturerViewController: ViewController {
     //Indicating whether we have already attempted to perform a segue or not
     var performedSegue = false
     
+    
+    var initialLoad = true
+    
     //Scanning sound audio player
     var scanningSoundAudioPlayer: AVAudioPlayer?
     
@@ -62,6 +67,8 @@ class TestCapturerViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        initialLoad = false
 
         // Do any additional setup after loading the view.
         
@@ -78,12 +85,23 @@ class TestCapturerViewController: ViewController {
 
         scanningSoundAudioPlayer?.play()
 
-        scanningSoundAudioPlayer?.volume = 0.1
+        scanningSoundAudioPlayer?.volume = 0.0
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        imageCounter = 0
+        performedSegue = false
+
+        if !initialLoad{
+            super.viewDidLoad()
+        }
+
+    }
     override func viewWillDisappear(_ animated: Bool) {
         scanningSoundAudioPlayer?.stop()
+        detectionOverlay.sublayers = nil
         super.viewWillDisappear(animated)
     }
     
@@ -167,12 +185,34 @@ class TestCapturerViewController: ViewController {
         
         //Loop through the results, only save those that have the "2019-nCov" string
         for result in results {
-            if result.topCandidates(1).first?.string == "2019-nCoV" || result.topCandidates(1).first?.string == "COVID-19"{
+            
+            var CCounter = 0
+            var TCounter = 0
+            //Loop through every result
+            
+            if ((((result.topCandidates(1).first?.string.contains("T")) != nil) || ((result.topCandidates(1).first?.string.contains("C")) != nil)) && (Double(self.objectBounds!.width) / Double(objectBounds!.height)) >= 2.8) {
                 //Save the image
                 //Print the confidence
                 print("Image saved, confidence: \(result.topCandidates(1).first?.confidence)")
-                currentFrameCIImage?.saveImage(self.imageCounter.description + ".png", inDirectoryURL: documentsDirectory)
+                
+                self.currentFrameCIImage = self.currentFrameCIImage?.oriented(.right)
+
+                //Crop the image to only test window
+                let startX = (currentFrameCIImage?.extent.origin.x)! + (currentFrameCIImage?.extent.size.width)! * 0.15
+                let startY = (currentFrameCIImage?.extent.origin.y)! + (currentFrameCIImage?.extent.size.height)! * 0.45
+                
+                let width = (currentFrameCIImage?.extent.size.width)! * 0.6
+                let height = ((currentFrameCIImage?.extent.size.height)!) * 0.22
+                
+                let cropRect = CGRect(x: startX, y: CGFloat(startY), width: width, height: height)
+                
+                let newCIImage = currentFrameCIImage?.cropped(to: cropRect)
+                
+                newCIImage?.saveImage(self.imageCounter.description + ".png", inDirectoryURL: documentsDirectory)
+                self.hardImpact.impactOccurred()
                 self.imageCounter += 1
+            } else {
+                self.softImpact.impactOccurred()
             }
             
         }
@@ -192,9 +232,11 @@ class TestCapturerViewController: ViewController {
             //Object bounds is a tuple with the boundaries of the object
             let objectBounds = VNImageRectForNormalizedRect(objectObservation.boundingBox, Int(bufferSize.width), Int(bufferSize.height))
 
-            //If there is only one result
-            if results.count == 1 {
-                
+
+            //If there is only one result and the RAT is far enough
+            if results.count == 1 && objectBounds.height < 100{
+                //Update our object bounds
+                self.objectBounds = objectBounds
                 //Output this frame
                 //Get file manager
                 //Get the paths
@@ -238,11 +280,11 @@ class TestCapturerViewController: ViewController {
                         }
                     }
                 
-                //Depending on the distance, we give intervaled feedback
-                if Date().timeIntervalSince(lastImapctTime) > (0.5){
-                    hardImpact.impactOccurred()
-                    lastImapctTime = Date()
-                }
+//                //Depending on the distance, we give intervaled feedback
+//                if Date().timeIntervalSince(lastImapctTime) > (0.5){
+//                    hardImpact.impactOccurred()
+//                    lastImapctTime = Date()
+//                }
                 
                 
                 
@@ -275,7 +317,7 @@ class TestCapturerViewController: ViewController {
 
         counter += 1
         //Only process every 3rd frame
-        if counter % 3 != 0{
+        if counter % 1 != 0{
             return
         }
         //If we have captured less than 50 images

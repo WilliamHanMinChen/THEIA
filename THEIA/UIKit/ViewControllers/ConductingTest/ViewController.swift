@@ -103,7 +103,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         
         //Turn on the flash;ight
         try? videoCaptureDevice!.lockForConfiguration()
-        videoCaptureDevice?.torchMode = .on
+//        videoCaptureDevice?.torchMode = .on
         videoCaptureDevice!.unlockForConfiguration()
         
     }

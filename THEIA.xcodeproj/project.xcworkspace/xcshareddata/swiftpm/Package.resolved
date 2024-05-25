@@ -1,4 +1,5 @@
 {
+  "originHash" : "41a8bb7ebed5679343c2e3839c7f6d9e706c3cd1562ae72f4dfea9c67857dfe4",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -116,7 +117,16 @@
         "revision" : "ab3a58b7209a17d781c0d1dbb3e1ff3da306bae8",
         "version" : "1.20.3"
       }
+    },
+    {
+      "identity" : "swiftcsvexport",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vigneshuvi/SwiftCSVExport.git",
+      "state" : {
+        "revision" : "fa7f2620eb0b109582e4b2b6ce3992358f4b299e",
+        "version" : "2.6.0"
+      }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

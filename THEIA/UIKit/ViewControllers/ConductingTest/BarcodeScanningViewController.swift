@@ -10,8 +10,10 @@ import AVFoundation
 import Vision
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import FirebaseAuth
 
-class BarcodeScanningViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureDepthDataOutputDelegate {
+class BarcodeScanningViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureDepthDataOutputDelegate, DatabaseListener {
+    
     
     
     @IBOutlet weak var previewView: UIView!
@@ -24,7 +26,14 @@ class BarcodeScanningViewController: UIViewController, AVCaptureVideoDataOutputS
     var handledScan = false
     
     //The chosen test type
+    var testTypes: [TestType] = []
     var testType: TestType?
+    
+    //Sets the listener type
+    var listenerType: ListenerType = ListenerType.testType
+    
+    //Stores a referene to the database
+    weak var dataBaseController: DatabaseProtocol?
     
     //The session that captures Audio Visual input
     let session = AVCaptureSession()
@@ -59,6 +68,10 @@ class BarcodeScanningViewController: UIViewController, AVCaptureVideoDataOutputS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        dataBaseController = appDelegate?.databaseController
+        
 
         // Do any additional setup after loading the view.
         setupAVCapture()
@@ -67,7 +80,7 @@ class BarcodeScanningViewController: UIViewController, AVCaptureVideoDataOutputS
         startCaptureSession()
         
         noBarcodeButton.setupButton()
-        
+        noBarcodeButton.isHidden = true
         //Get our database reference
         database = Firestore.firestore()
     }
@@ -79,8 +92,12 @@ class BarcodeScanningViewController: UIViewController, AVCaptureVideoDataOutputS
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        session.startRunning()
         
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.session.startRunning()
+
+        }
+
         //Turn on the flash;ight
         try? videoCaptureDevice!.lockForConfiguration()
         videoCaptureDevice?.torchMode = .on
@@ -93,11 +110,26 @@ class BarcodeScanningViewController: UIViewController, AVCaptureVideoDataOutputS
         DispatchQueue.main.async { [weak self] in
             self?.navigationController?.navigationBar.sizeToFit()
         }
+        dataBaseController?.addListener(listener: self)
         self.handledScan = false
+        
+        //Turn on the flash;ight
+        try? videoCaptureDevice!.lockForConfiguration()
+        videoCaptureDevice?.torchMode = .on
+        videoCaptureDevice!.unlockForConfiguration()
         
         #if targetEnvironment(simulator)
             return
         #endif
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        dataBaseController?.removeListener(listener: self)
+
+        
+        
     }
     
     // Clean up capture setup
@@ -107,7 +139,14 @@ class BarcodeScanningViewController: UIViewController, AVCaptureVideoDataOutputS
     }
     
     func startCaptureSession() {
-        session.startRunning()
+        
+        DispatchQueue.global(qos: .background).async {
+            self.session.startRunning()
+
+        }
+
+        
+    
         
         //Turn on the flash;ight
         try? videoCaptureDevice!.lockForConfiguration()
@@ -305,6 +344,8 @@ class BarcodeScanningViewController: UIViewController, AVCaptureVideoDataOutputS
                     fatalError("Failed to get barcodes")
                 }
                 
+//                let barcodes = self.testType?.barCodes
+                
                 if barcodes.contains(barcodeValue) {
                     //Set handled scan to true
                     self.handledScan = true
@@ -320,7 +361,7 @@ class BarcodeScanningViewController: UIViewController, AVCaptureVideoDataOutputS
                           // A Test value was successfully initialized from the DocumentSnapshot.
                           self.scannedTest = test
                             print("Test downloaded \(test.name)")
-                            self.performSegue(withIdentifier: "barCodeScannedSegue", sender: nil)
+                            self.performSegue(withIdentifier: "scannedTestToConductingSegue", sender: nil)
                             self.feedback.notificationOccurred(.success)
                         case .failure(let error):
                           //Error message
@@ -354,12 +395,13 @@ class BarcodeScanningViewController: UIViewController, AVCaptureVideoDataOutputS
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "barCodeScannedSegue"{
+        if segue.identifier == "scannedTestToConductingSegue"{
+            
             
             //Set our next VC's scanned test
-            let destination = segue.destination as! ComponentsLearningViewController
-            
+            let destination = segue.destination as! TestInformationViewController
             destination.scannedTest = self.scannedTest
+            destination.testType = self.testType
         }
         
         if segue.identifier == "BarcodeToPackagingSegue"{
@@ -378,11 +420,39 @@ class BarcodeScanningViewController: UIViewController, AVCaptureVideoDataOutputS
     }
     
     
+    //MARK: Database Delegate
+    func onAuthStateChange(user: User) {
+        
+    }
+
+    func onAuthError(error: NSError) {
+        
+    }
+
+    func onEndUserChange(change: DataBaseChange, user: EndUser) {
+        
+    }
+    
+    func onTestChange(change: DataBaseChange, tests: [Test]) {
+        
+    }
+
+
+    func onTestTypesChange(change: DataBaseChange, testTypes: [TestType]) {
+        self.testTypes = testTypes
+        
+        self.testType = testTypes.first
+        print(testTypes)
+    }
+    
+    
+    
     // MARK: - Navigation
 
     
 
 }
+
 
 
 

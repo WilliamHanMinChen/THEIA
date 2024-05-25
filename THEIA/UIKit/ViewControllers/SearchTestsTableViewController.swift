@@ -217,7 +217,7 @@ class SearchTestsTableViewController: UITableViewController, UISearchResultsUpda
             
             let selectedTest = sender as! Test
             //Set our next VC's scanned test
-            let destination = segue.destination as! ComponentsLearningViewController
+            let destination = segue.destination as! TestInformationViewController
             
             destination.scannedTest = selectedTest
         }

@@ -10,7 +10,10 @@ import UIKit
 class TestInformationViewController: UIViewController {
     
     //The selected Test Type
-    var selectedTestType: TestType?
+    var testType: TestType?
+    
+    //The scanned Test
+    var scannedTest: Test?
 
     
     @IBOutlet weak var informationLabel: UILabel!
@@ -42,8 +45,13 @@ class TestInformationViewController: UIViewController {
         
         resultsCapturingLabel.attributedText = "Results Capturing:".underLined
         
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            if UIAccessibility.isVoiceOverRunning {
+                UIAccessibility.post(notification: .screenChanged, argument: "Test scanned: Mock Covid Test")
+            }
+        }
         
-        guard let importantInformation = selectedTestType?.importantInformation else {
+        guard let importantInformation = testType?.importantInformation else {
             fatalError("Failed to get important information")
         }
         
@@ -62,7 +70,7 @@ class TestInformationViewController: UIViewController {
         //Get the results capturing information string
         var resultsCapturingInformation = ""
         
-        guard let captureInformation = selectedTestType?.resultsCapturing else {
+        guard let captureInformation = testType?.resultsCapturing else {
             fatalError("Failed to get results capturing string")
         }
         
@@ -71,7 +79,7 @@ class TestInformationViewController: UIViewController {
             resultsCapturingInformation += "\u{2022} " + information + "\n"
         }
         
-        capturingInformationLabel.text = displayInformation
+        capturingInformationLabel.text = resultsCapturingInformation
         
         nextStepButtonReference.setupButton()
         
@@ -87,18 +95,18 @@ class TestInformationViewController: UIViewController {
         //Give haptic feedback
         mediumImpact.impactOccurred()
         
-        performSegue(withIdentifier: "ConductingBarScanningSegue", sender: selectedTestType!)
+        performSegue(withIdentifier: "testInformationToTestingSegue", sender: testType!)
         
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         //Set our next VC's test type
-        if segue.identifier == "ConductingBarScanningSegue" {
+        if segue.identifier == "testInformationToTestingSegue" {
             
-            let destination = segue.destination as! BarcodeScanningViewController
+            let destination = segue.destination as! ComponentsLearningViewController
             
-            destination.testType = sender as! TestType
+            destination.scannedTest = self.scannedTest
         }
     }
 
